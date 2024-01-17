@@ -18,7 +18,7 @@ export async function generateMetadata({
 	const dictonnaires = await getDictionary(params.lang)
 	const metaHome = dictonnaires['home']['meta']
 	const baseUrl =
-		process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : ''
+		process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://nzhinu.vercel.app'
 	return {
 		metadataBase: new URL(baseUrl),
 		title: { template: '%s - Nzhinu Creation', absolute: metaHome.title },
