@@ -1,4 +1,3 @@
-import { PricedProduct } from "@medusajs/medusa/dist/types/pricing"
 import { NextPage } from "next"
 import { AppProps } from "next/app"
 import { ReactElement, ReactNode } from "react"
@@ -15,23 +14,11 @@ export type FeaturedProduct = {
   thumbnail?: string
 }
 
-export type StoreNavData = {
-  collections: CollectionData[]
-  hasMoreCollections: boolean
-  featuredProducts: PricedProduct[]
-}
 
 // page props for store pages (products and collection pages)
 export type StoreProps<T extends unknown> = {
   page: {
     data: T
-  }
-}
-
-// page props for non-store pages (home, about, contact, etc)
-export type SiteProps = {
-  site: {
-    navData: StoreNavData
   }
 }
 
@@ -61,11 +48,4 @@ export type ProductPreviewType = {
     price_type: "default" | "sale"
   }
   isFeatured?: boolean
-}
-
-export type InfiniteProductPage = {
-  response: {
-    products: PricedProduct[]
-    count: number
-  }
 }
