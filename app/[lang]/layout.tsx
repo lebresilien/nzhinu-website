@@ -3,6 +3,8 @@ import { Inter } from 'next/font/google'
 import '../styles/globals.css'
 import { getDictionary } from '@/get-dictionary'
 import { Locale, i18n } from '@/i18n-config'
+import Nav from '../components/nav'
+import { MobileMenuProvider } from '../lib/context/mobile-menu-context'
 
 export async function generateStaticParams() {
 	return i18n.locales.map(locale => ({ lang: locale }))
@@ -33,16 +35,25 @@ export async function generateMetadata({
 	}
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
   params,
 }: Readonly<{
 	children: React.ReactNode
 	params: { lang: Locale }
 }>) {
+
+	const dictionary = await getDictionary(params.lang)
+	const nav = dictionary['home']
+
   return (
     <html lang={params.lang}>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+	  	<MobileMenuProvider>
+	  	  <Nav dic={nav} />
+          {children}
+		</MobileMenuProvider>
+      </body>
     </html>
   )
 }
