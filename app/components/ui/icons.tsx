@@ -1,6 +1,6 @@
 import { type SVGProps } from 'react'
 import { type IconName } from '@/app/types/name'
-import { cn } from '@/ /lib/utils'
+import { cn } from '@/lib/utils/cn'
 
 export { IconName }
 
