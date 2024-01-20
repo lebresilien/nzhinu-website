@@ -21,7 +21,12 @@ const en = {
         footer: {
             contact: "Contactez nous",
             powered: "Powered by"
-        }
+        },
+    },
+    not_found: {
+        name: 'Page not found',
+        exists: 'The page you tried to access does not exist.',
+        back: 'Go to home'
     }
 }
 

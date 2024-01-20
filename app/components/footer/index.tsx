@@ -13,7 +13,7 @@ const Footer = ({ dic }: Props) => {
 
   return (
     <footer>
-      <div className="border-t border-ui-border-base w-full px-5">
+      <div className="border-t w-full px-5">
       <div className="flex flex-col">
         <div className="flex xs:flex-col gap-y-6 md:flex-row items-start justify-between py-20">
           <div>
@@ -102,7 +102,7 @@ const Footer = ({ dic }: Props) => {
         </div>
         <div className="flex w-full mb-10 justify-between text-xs">
           <Text className="">
-            © {new Date().getFullYear()} Nzhinu Store. {dic['sidebar']['copyright']}.
+            © {new Date().getFullYear()} Nzhinu Store. {dic['sidebar']['copyright']}
           </Text>
           <Text className="flex gap-x-2 items-center">
             {dic['footer']['powered']}

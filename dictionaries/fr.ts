@@ -22,6 +22,11 @@ const fr = {
             contact: "Contactez nous",
             powered: "Propulsé par"
         }
+    },
+    not_found: {
+        name: 'Page non trouvée',
+        exists: 'La page dont vous essayer d\'accéder n\'existe pas.',
+        back: 'Retour à la page d\'accueil'
     }
 }
 
