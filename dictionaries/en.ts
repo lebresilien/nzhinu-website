@@ -17,7 +17,11 @@ const en = {
             cart: "Cart",
             copyright: "All rights reserved."
         },
-        welcome: "Get started by editing"
+        welcome: "Get started by editing",
+        footer: {
+            contact: "Contactez nous",
+            powered: "Powered by"
+        }
     }
 }
 

@@ -5,6 +5,7 @@ import { getDictionary } from '@/get-dictionary'
 import { Locale, i18n } from '@/i18n-config'
 import Nav from '../components/nav'
 import { MobileMenuProvider } from '../lib/context/mobile-menu-context'
+import Footer from '../components/footer'
 
 export async function generateStaticParams() {
 	return i18n.locales.map(locale => ({ lang: locale }))
@@ -51,7 +52,8 @@ export default async function RootLayout({
       <body className={inter.className}>
 	  	<MobileMenuProvider>
 	  	  <Nav dic={nav} />
-          {children}
+          	{children}
+		  <Footer dic={nav} />
 		</MobileMenuProvider>
       </body>
     </html>

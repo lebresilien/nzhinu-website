@@ -17,7 +17,11 @@ const fr = {
             cart: "Panier",
             copyright: "Tous droits reservés."
         },
-        welcome: "Commencez par modifier"
+        welcome: "Commencez par modifier",
+        footer: {
+            contact: "Contactez nous",
+            powered: "Propulsé par"
+        }
     }
 }
 
