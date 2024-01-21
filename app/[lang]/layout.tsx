@@ -6,6 +6,10 @@ import { Locale, i18n } from '@/i18n-config'
 import Nav from '../components/nav'
 import { MobileMenuProvider } from '../lib/context/mobile-menu-context'
 import Footer from '../components/footer'
+import {
+	QueryClient,
+	QueryClientProvider,
+} from '@tanstack/react-query'
 
 export async function generateStaticParams() {
 	return i18n.locales.map(locale => ({ lang: locale }))
@@ -36,6 +40,7 @@ export async function generateMetadata({
 	}
 }
 
+const queryClient = new QueryClient()
 export default async function RootLayout({
   children,
   params,
@@ -50,11 +55,13 @@ export default async function RootLayout({
   return (
     <html lang={params.lang}>
       <body className={inter.className}>
-	  	<MobileMenuProvider>
-	  	  <Nav dic={nav} />
-          	{children}
-		  <Footer dic={nav} />
-		</MobileMenuProvider>
+	  	<QueryClientProvider client={queryClient}>
+			<MobileMenuProvider>
+				<Nav dic={nav} />
+					{children}
+				<Footer dic={nav} />
+			</MobileMenuProvider>
+		<QueryClientProvider client={queryClient}></QueryClientProvider>
       </body>
     </html>
   )

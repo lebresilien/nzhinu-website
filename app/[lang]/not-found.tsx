@@ -1,6 +1,5 @@
 import { Metadata } from "next"
 import Link from "next/link"
-import { headers } from 'next/headers'
 import { match } from '@formatjs/intl-localematcher'
 import Negotiator from 'negotiator'
 import { getDictionary } from "@/get-dictionary"
