@@ -1,7 +1,6 @@
-import { medusaClient } from "@lib/config"
-import { LOGIN_VIEW, useAccount } from "@lib/context/account-context"
+import { LOGIN_VIEW, useAccount } from "@/app/lib/context/account-context"
 import { Button } from "@medusajs/ui"
-import Input from "@modules/common/components/input"
+import Input from "@/app/components/input"
 import { Spinner } from "@medusajs/icons"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
@@ -17,7 +16,7 @@ interface RegisterCredentials extends FieldValues {
 }
 
 const Register = () => {
-  const { loginView, refetchCustomer } = useAccount()
+  const { loginView } = useAccount()
   const [_, setCurrentView] = loginView
   const [authError, setAuthError] = useState<string | undefined>(undefined)
   const router = useRouter()
@@ -33,13 +32,7 @@ const Register = () => {
   } = useForm<RegisterCredentials>()
 
   const onSubmit = handleSubmit(async (credentials) => {
-    await medusaClient.customers
-      .create(credentials)
-      .then(() => {
-        refetchCustomer()
-        router.push("/account")
-      })
-      .catch(handleError)
+   
   })
 
   return (

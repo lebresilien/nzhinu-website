@@ -1,6 +1,5 @@
 "use client"
 
-import { useMutation } from "@tanstack/react-query"
 import { useRouter } from "next/navigation"
 import React, { createContext, useCallback, useContext, useState } from "react"
 
@@ -11,8 +10,6 @@ export enum LOGIN_VIEW {
 
 interface AccountContext {
   loginView: [LOGIN_VIEW, React.Dispatch<React.SetStateAction<LOGIN_VIEW>>]
-  checkSession: () => void
-  handleLogout: () => void
 }
 
 const AccountContext = createContext<AccountContext | null>(null)
@@ -35,26 +32,14 @@ export const AccountProvider = ({ children }: AccountProviderProps) => {
     } */
   }, [])
 
-  const useDeleteSession = useMutation({
-    mutationFn: '',
-    mutationKey: ["delete-session"],
-  })
+  
 
-  const handleLogout = () => {
-    useDeleteSession.mutate(undefined, {
-      onSuccess: () => {
-        loginView[1](LOGIN_VIEW.SIGN_IN)
-        router.push("/")
-      },
-    })
-  }
+  
 
   return (
     <AccountContext.Provider
       value={{
         loginView,
-        checkSession,
-        handleLogout,
       }}
     >
       {children}

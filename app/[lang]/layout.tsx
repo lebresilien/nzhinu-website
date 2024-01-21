@@ -5,6 +5,7 @@ import { getDictionary } from '@/get-dictionary'
 import { Locale, i18n } from '@/i18n-config'
 import Nav from '../components/nav'
 import { MobileMenuProvider } from '../lib/context/mobile-menu-context'
+import { AccountProvider } from '../lib/context/account-context'
 import Footer from '../components/footer'
 import {
 	QueryClient,
@@ -40,7 +41,6 @@ export async function generateMetadata({
 	}
 }
 
-const queryClient = new QueryClient()
 export default async function RootLayout({
   children,
   params,
@@ -51,17 +51,20 @@ export default async function RootLayout({
 
 	const dictionary = await getDictionary(params.lang)
 	const nav = dictionary['home']
+	const queryClient = new QueryClient()
 
   return (
     <html lang={params.lang}>
       <body className={inter.className}>
-	  	<QueryClientProvider client={queryClient}>
-			<MobileMenuProvider>
-				<Nav dic={nav} />
-					{children}
-				<Footer dic={nav} />
-			</MobileMenuProvider>
-		<QueryClientProvider client={queryClient}></QueryClientProvider>
+	  
+		  	<AccountProvider>
+				<MobileMenuProvider>
+					<Nav dic={nav} />
+						{children}
+					<Footer dic={nav} />
+				</MobileMenuProvider>
+			</AccountProvider>
+	
       </body>
     </html>
   )
