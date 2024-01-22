@@ -42,7 +42,12 @@ const fr = {
         and: 'et',
         terms: 'Conditions d\'utilisation',
         already: 'Déja membre',
-        sign: 'Se connecter'
+        sign: 'Se connecter',
+        firstname: 'Prénom',
+        lastname: 'Nom',
+        email: 'Adresse email',
+        phone: 'Téléphone',
+        password: 'Mot de passe'
     }
 }
 

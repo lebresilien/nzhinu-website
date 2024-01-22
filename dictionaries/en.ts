@@ -42,7 +42,12 @@ const en = {
         and: 'and',
         terms: 'Terms of Use',
         already: 'Already a member',
-        sign: 'Sign in'
+        sign: 'Sign in',
+        firstname: 'First name',
+        lastname: 'First name',
+        email: 'Email',
+        phone: 'Phone',
+        password: 'Password'
     }
 }
 

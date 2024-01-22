@@ -48,13 +48,13 @@ const Login = ({ dic }: Props) => {
       <form className="w-full" onSubmit={onSubmit}>
         <div className="flex flex-col w-full gap-y-2">
           <Input
-            label="Email"
+            label={dic['email']}
             {...register("email", { required: "Email is required" })}
             autoComplete="email"
             errors={errors}
           />
           <Input
-            label="Password"
+            label={dic['password']}
             {...register("password", { required: "Password is required" })}
             type="password"
             autoComplete="current-password"

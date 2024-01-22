@@ -56,31 +56,31 @@ const Register = ({ dic }: Props) => {
       <form className="w-full flex flex-col" onSubmit={onSubmit}>
         <div className="flex flex-col w-full gap-y-2">
           <Input
-            label="First name"
+            label={dic['firstname']}
             {...register("first_name", { required: "First name is required" })}
             autoComplete="given-name"
             errors={errors}
           />
           <Input
-            label="Last name"
+            label={dic['lastname']}
             {...register("last_name", { required: "Last name is required" })}
             autoComplete="family-name"
             errors={errors}
           />
           <Input
-            label="Email"
+            label={dic['email']}
             {...register("email", { required: "Email is required" })}
             autoComplete="email"
             errors={errors}
           />
           <Input
-            label="Phone"
+            label={dic['phone']}
             {...register("phone")}
             autoComplete="tel"
             errors={errors}
           />
           <Input
-            label="Password"
+            label={dic['password']}
             {...register("password", {
               required: "Password is required",
             })}
