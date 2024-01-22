@@ -5,8 +5,13 @@ import Register from "../components/register"
 import { useRouter } from "next/navigation"
 import { useEffect } from "react"
 import Login from "../components/login"
+import { getDictionary } from "@/get-dictionary"
 
-const LoginTemplate = () => {
+type Props = {
+	dic: Awaited<ReturnType<typeof getDictionary>>['login']
+}
+
+const LoginTemplate = ({ dic }: Props) => {
   const { loginView } = useAccount()
   const [currentView, _] = loginView
 
@@ -20,7 +25,7 @@ const LoginTemplate = () => {
  */
   return (
     <div className="w-full flex justify-center px-8 py-12">
-      {currentView === "sign-in" ? <Login /> : <Register />}
+      {currentView === "sign-in" ? <Login dic={dic} /> : <Register dic={dic} />}
     </div>
   )
 }

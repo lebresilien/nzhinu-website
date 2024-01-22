@@ -6,6 +6,11 @@ import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 import { FieldValues, useForm } from "react-hook-form"
+import { getDictionary } from "@/get-dictionary"
+
+type Props = {
+	dic: Awaited<ReturnType<typeof getDictionary>>['login']
+}
 
 interface RegisterCredentials extends FieldValues {
   first_name: string
@@ -15,7 +20,7 @@ interface RegisterCredentials extends FieldValues {
   phone?: string
 }
 
-const Register = () => {
+const Register = ({ dic }: Props) => {
   const { loginView } = useAccount()
   const [_, setCurrentView] = loginView
   const [authError, setAuthError] = useState<string | undefined>(undefined)
@@ -42,12 +47,11 @@ const Register = () => {
           <Spinner />
         </div>
       )}
-      <h1 className="text-large-semi uppercase mb-6">
-        Become a Medusa Store Member
+      <h1 className="text-xl uppercase mb-6">
+        {dic['nzhinu_member']}
       </h1>
-      <p className="text-center text-base-regular text-gray-700 mb-4">
-        Create your Medusa Store Member profile, and get access to an enhanced
-        shopping experience.
+      <p className="text-center text-xs text-gray-700 mb-4">
+        {dic['create_account']}
       </p>
       <form className="w-full flex flex-col" onSubmit={onSubmit}>
         <div className="flex flex-col w-full gap-y-2">
@@ -87,33 +91,33 @@ const Register = () => {
         </div>
         {authError && (
           <div>
-            <span className="text-rose-500 w-full text-small-regular">
-              These credentials do not match our records
+            <span className="text-rose-500 w-full text-sm">
+              {dic['error_login']}
             </span>
           </div>
         )}
-        <span className="text-center text-gray-700 text-small-regular mt-6">
-          By creating an account, you agree to Medusa Store&apos;s{" "}
-          <Link href="/content/privacy-policy" className="underline">
-            Privacy Policy
+        <span className="text-center text-gray-700 text-sm mt-6">
+          {dic['agree']}&apos;s{" "}
+          <Link href="#" className="underline">
+            {dic['policy']}
           </Link>{" "}
-          and{" "}
-          <Link href="/content/terms-of-use" className="underline">
-            Terms of Use
+          {dic['and']}{" "}
+          <Link href="#" className="underline">
+            {dic['terms']}
           </Link>
           .
         </span>
-        <Button className="mt-6 w-full" size="xlarge">
-          Join
+        <Button className="mt-6 w-full p-2 bg-gray-900 text-white hover:bg-gray-800" size="xlarge">
+          {dic['join']}
         </Button>
       </form>
-      <span className="text-center text-gray-700 text-small-regular mt-6">
-        Already a member?{" "}
+      <span className="text-center text-gray-700 text-sm mt-6">
+        {dic['already']}?{" "}
         <button
           onClick={() => setCurrentView(LOGIN_VIEW.SIGN_IN)}
           className="underline"
         >
-          Sign in
+          {dic['sign']}
         </button>
         .
       </span>

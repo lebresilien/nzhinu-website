@@ -7,10 +7,10 @@ import Nav from '../components/nav'
 import { MobileMenuProvider } from '../lib/context/mobile-menu-context'
 import { AccountProvider } from '../lib/context/account-context'
 import Footer from '../components/footer'
-import {
+/* import {
 	QueryClient,
 	QueryClientProvider,
-} from '@tanstack/react-query'
+} from '@tanstack/react-query' */
 
 export async function generateStaticParams() {
 	return i18n.locales.map(locale => ({ lang: locale }))
@@ -51,20 +51,19 @@ export default async function RootLayout({
 
 	const dictionary = await getDictionary(params.lang)
 	const nav = dictionary['home']
-	const queryClient = new QueryClient()
 
   return (
     <html lang={params.lang}>
       <body className={inter.className}>
-	  
-		  	<AccountProvider>
-				<MobileMenuProvider>
+	  	{/* <QueryClientProvider client={queryClient}> */}
+			<MobileMenuProvider>
+				<AccountProvider>
 					<Nav dic={nav} />
 						{children}
 					<Footer dic={nav} />
-				</MobileMenuProvider>
-			</AccountProvider>
-	
+				</AccountProvider>
+			</MobileMenuProvider>
+		{/* </QueryClientProvider> */}
       </body>
     </html>
   )

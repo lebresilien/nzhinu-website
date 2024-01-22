@@ -5,13 +5,18 @@ import { Spinner } from "@medusajs/icons"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 import { FieldValues, useForm } from "react-hook-form"
+import { getDictionary } from "@/get-dictionary"
+
+type Props = {
+	dic: Awaited<ReturnType<typeof getDictionary>>['login']
+}
 
 interface SignInCredentials extends FieldValues {
   email: string
   password: string
 }
 
-const Login = () => {
+const Login = ({ dic }: Props) => {
   const { loginView } = useAccount()
   const [_, setCurrentView] = loginView
   const [authError, setAuthError] = useState<string | undefined>(undefined)
@@ -36,9 +41,9 @@ const Login = () => {
           <Spinner />
         </div>
       )}
-      <h1 className="text-large-semi uppercase mb-6">Welcome back</h1>
+      <h1 className="text-large-semi uppercase mb-6">{dic['title']}</h1>
       <p className="text-center text-base-regular text-gray-700 mb-8">
-        Sign in to access an enhanced shopping experience.
+        {dic['subtitle']}
       </p>
       <form className="w-full" onSubmit={onSubmit}>
         <div className="flex flex-col w-full gap-y-2">
@@ -58,22 +63,22 @@ const Login = () => {
         </div>
         {authError && (
           <div>
-            <span className="text-rose-500 w-full text-small-regular">
-              These credentials do not match our records
+            <span className="text-rose-500 w-full text-sm">
+              {dic['error_login']}
             </span>
           </div>
         )}
-        <Button className="mt-6 w-full" size="large">
-          Enter
+        <Button className="mt-6 w-full bg-gray-900 text-white p-2 hover:bg-gray-800" size="large">
+          {dic['enter']}
         </Button>
       </form>
-      <span className="text-center text-gray-700 text-small-regular mt-6">
-        Not a member?{" "}
+      <span className="text-center text-gray-700 text-sm mt-6">
+        {dic['member']}{" "}
         <button
           onClick={() => setCurrentView(LOGIN_VIEW.REGISTER)}
           className="underline"
         >
-          Join us
+          {dic['join']}
         </button>
         .
       </span>
