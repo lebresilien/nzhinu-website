@@ -12,9 +12,9 @@ import axios from 'axios'
   return res.json()
 } */
 
-async function getCate() {
+async function getCate(lang: string) {
   try {
-    const response = await axios.get('http://127.0.0.1:8000/api/products/fr');
+    const response = await axios.get(`${process.env.BACKEND_URL}/api/products/${lang}`);
     return response.data;
   } catch (error) {
     console.error('rerererereer', error);
@@ -28,13 +28,13 @@ export default async function Home({
 }>) {
 
   const dict = await getDictionary(lang)
-  const categories = await getCate()
+  const categories = await getCate(lang)
 
   return (
     <>
       <Hero />
-      <Suspense fallback={<SkeletonHomepageProducts count={3} />}>
-        <FeaturedProducts categories={categories} />
+      <Suspense fallback={<SkeletonHomepageProducts count={5} />}>
+        <FeaturedProducts categories={categories} dict={dict['home']} />
       </Suspense> 
     </>
   )

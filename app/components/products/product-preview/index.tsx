@@ -2,6 +2,7 @@ import Link from "next/link"
 import { Product} from "@/app/types/global"
 import Thumbnail from "../thumbnail"
 import { Text } from "@medusajs/ui"
+import Image from "next/image"
 
 const ProductPreview = ({
   id,
@@ -15,10 +16,10 @@ const ProductPreview = ({
     <div>
       <Thumbnail thumbnail={thumbnail} size="full" />
       <div className="flex font-medium mt-4 justify-between">
-        <Text className="text-xs">{title}</Text>
+        <Text className="text-sm">{title}</Text>
         <div className="flex items-center gap-x-2">
-          <Text className="line-through text-muted">
-            {price}
+          <Text className="text-sm text-gray-900">
+            {price} FCFA
           </Text>
         </div>
       </div>

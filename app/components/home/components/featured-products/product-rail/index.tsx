@@ -4,20 +4,26 @@ import { CategoryProduct } from "@/app/types/global"
 import ProductPreview from "@/app/components/products/product-preview"
 import { Text } from "@medusajs/ui"
 import InteractiveLink from "@/app/components/interactive-link" 
+import { getDictionary } from "@/get-dictionary"
 
-const ProductRail = ({ category }: { category: CategoryProduct }) => {
+type Props = {
+	dict: Awaited<ReturnType<typeof getDictionary>>['home'],
+  category: CategoryProduct
+}
+
+const ProductRail = ({ dict, category }: Props) => {
 
   return (
-    <div className="xs:py-12">
-      <div className="content-container py-12">
+    <div>
+      <div className="container py-12">
         <div className="flex justify-between mb-8">
-          <Text className="txt-xlarge">{category.name}</Text>
+          <Text className="text-lg">{category.name}</Text>
           <InteractiveLink href={`/collections/${category.slug}`}>
-            View all
+             {dict['product']['see_all']}
           </InteractiveLink>
         </div>
-        <ul className="grid grid-cols-2 small:grid-cols-3 gap-x-6 gap-y-8">
-          {category.products &&
+        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-5">
+          {category && category.products &&
             category.products.map((product) => (
               <li key={product.id}>
                 <ProductPreview {...product} />

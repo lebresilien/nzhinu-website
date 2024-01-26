@@ -21,6 +21,9 @@ const fr = {
         footer: {
             contact: "Contactez nous",
             powered: "Propulsé par"
+        },
+        product: {
+            see_all: "Tout voir"
         }
     },
     not_found: {

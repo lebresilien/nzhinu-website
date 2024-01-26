@@ -22,20 +22,17 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
   return (
     <Container
       className={clsx(
-        "relative w-full overflow-hidden p-4 bg-ui-bg-subtle shadow-elevation-card-rest rounded-large group-hover:shadow-elevation-card-hover transition-shadow ease-in-out duration-150",
+        "flex relative w-full overflow-hidden p-4 shadow-md items-center justify-center bg-neutral-100 rounded-large group-hover:shadow-2xl transition-shadow ease-in-out duration-150",
         className,
         {
           "aspect-[11/14]": isFeatured,
-          "aspect-[9/16]": !isFeatured && size !== "square",
-          "aspect-[1/1]": size === "square",
-          "w-[180px]": size === "small",
-          "w-[290px]": size === "medium",
-          "w-[440px]": size === "large",
+          "aspect-[11/15]": !isFeatured && size !== "small",
+          "aspect-[1/1]": size === "small",
           "w-full": size === "full",
         }
       )}
     >
-      <ImageOrPlaceholder image={initialImage} size={size} />
+      <Image quality={50} className="absolute inset-0 object-cover object-center" fill alt="Thumbnail" src={initialImage} sizes="(max-width: 576px) 280px, (max-width: 768px) 360px, (max-width: 992px) 200px, 250px" />
     </Container>
   )
 }

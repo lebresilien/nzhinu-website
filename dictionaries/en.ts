@@ -22,6 +22,9 @@ const en = {
             contact: "Contactez nous",
             powered: "Powered by"
         },
+        product: {
+            see_all: "View all"
+        }
     },
     not_found: {
         name: 'Page not found',
