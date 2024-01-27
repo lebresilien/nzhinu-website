@@ -17,8 +17,8 @@ const Nav = ({ dic }: Props) => {
 
   return (
     <div className="sticky top-0 inset-x-0 z-50 group">
-      <header className="relative h-16 px-8 mx-auto border-b duration-200 bg-white border-ui-border-base">
-        <nav className="text-xs flex items-center justify-between w-full h-full text-small-regular">
+      <header className="relative h-16 px-8 mx-auto border-b duration-200 bg-white">
+        <nav className="text-xs flex items-center justify-between w-full h-full">
           <div className="flex-1 basis-0 h-full flex items-center">
             <div className="xs:block md:hidden">
                 <SideMenu dic={dic['sidebar']}/>

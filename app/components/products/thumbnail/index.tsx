@@ -22,7 +22,7 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
   return (
     <Container
       className={clsx(
-        "flex relative w-full overflow-hidden p-4 shadow-md items-center justify-center bg-neutral-100 rounded-large group-hover:shadow-2xl transition-shadow ease-in-out duration-150",
+        "flex relative w-full overflow-hidden p-4 shadow-md items-center justify-center bg-secondary rounded-large group-hover:shadow-2xl transition-shadow ease-in-out duration-150",
         className,
         {
           "aspect-[11/14]": isFeatured,
@@ -32,7 +32,7 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
         }
       )}
     >
-      <Image quality={50} className="absolute inset-0 object-cover object-center" fill alt="Thumbnail" src={initialImage} sizes="(max-width: 576px) 280px, (max-width: 768px) 360px, (max-width: 992px) 200px, 250px" />
+      <Image quality={50} className="absolute z-30 object-none object-center" fill alt="Thumbnail" src={initialImage} sizes="(max-width: 576px) 180px, (max-width: 768px) 260px, (max-width: 992px) 300px, 350px" />
     </Container>
   )
 }

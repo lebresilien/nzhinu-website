@@ -16,9 +16,9 @@ const ProductPreview = ({
     <div>
       <Thumbnail thumbnail={thumbnail} size="full" />
       <div className="flex font-medium mt-4 justify-between">
-        <Text className="text-sm">{title}</Text>
+        <Text className="text-sm text-primary">{title}</Text>
         <div className="flex items-center gap-x-2">
-          <Text className="text-sm text-gray-900">
+          <Text className="text-sm text-gray-900 text-muted-foreground">
             {price} FCFA
           </Text>
         </div>

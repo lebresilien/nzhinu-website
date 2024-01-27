@@ -17,7 +17,7 @@ const ProductRail = ({ dict, category }: Props) => {
     <div>
       <div className="container py-12">
         <div className="flex justify-between mb-8">
-          <Text className="text-lg">{category.name}</Text>
+          <Text className="text-sm">{category.name}</Text>
           <InteractiveLink href={`/collections/${category.slug}`}>
              {dict['product']['see_all']}
           </InteractiveLink>
