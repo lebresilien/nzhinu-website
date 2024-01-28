@@ -1,6 +1,6 @@
-import repeat from "@lib/util/repeat"
-import Divider from "@modules/common/components/divider"
-import SkeletonButton from "@modules/skeletons/components/skeleton-button"
+import repeat from "@/app/lib/util/repeat"
+import Divider from "@/app/components/divider"
+import SkeletonButton from "@/app/components/skeletons/components/skeleton-button"
 
 const SkeletonProductPage = () => {
   return (
