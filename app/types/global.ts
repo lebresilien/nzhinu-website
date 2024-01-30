@@ -15,6 +15,7 @@ export type Product = {
 
 export type CategoryProduct = {
   name: string
-  slug: string
+  slug?: string
   products: Product[]
 }
+
