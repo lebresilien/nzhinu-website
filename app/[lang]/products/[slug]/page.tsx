@@ -33,7 +33,7 @@ export default async function ProductPage({
 }: Readonly<{
 	params: { lang: Locale, slug: string },
 }>) {
-
-  console.log('ooooooo', slug)
-  return <p>bineeeeeeeeee</p>
+  const response = await axios.get(`${process.env.BACKEND_URL}/api/products/${lang}/${slug}`);
+  const product = response.data
+  return <ProductTemplate product={product} />
 }

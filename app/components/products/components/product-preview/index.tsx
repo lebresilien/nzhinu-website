@@ -2,12 +2,9 @@ import Link from "next/link"
 import { Product} from "@/app/types/global"
 import Thumbnail from "../thumbnail"
 import { Text } from "@medusajs/ui"
-import Image from "next/image"
 
 const ProductPreview = ({
-  id,
   title,
-  handle,
   thumbnail,
   price,
   slug,

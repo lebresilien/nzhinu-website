@@ -3,7 +3,6 @@
 import repeat from "@/app/lib/util/repeat"
 import ProductPreview from "@/app/components/products/components/product-preview"
 import SkeletonProductPreview from "@/app/components/skeletons/components/skeleton-product-preview"
-import React, { useEffect } from "react"
 import { CategoryProduct, Product } from "@/app/types/global"
 
 const CollectionTemplate: React.FC<{ collection: CategoryProduct }> = ({

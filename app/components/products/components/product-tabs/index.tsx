@@ -1,15 +1,12 @@
-import { Tab } from "@headlessui/react"
-import { PricedProduct } from "@medusajs/medusa/dist/types/pricing"
-import Back from "@modules/common/icons/back"
-import FastDelivery from "@modules/common/icons/fast-delivery"
-import Refresh from "@modules/common/icons/refresh"
-import { ProgressAccordion, Text } from "@medusajs/ui"
-import clsx from "clsx"
+import { Product } from "@/app/types/global"
+import Back from "@/app/components/icons/back"
+import FastDelivery from "@/app/components/icons/fast-delivery"
+import Refresh from "@/app/components/icons/refresh"
 import { useMemo } from "react"
 import Accordion from "./accordion"
 
 type ProductTabsProps = {
-  product: PricedProduct
+  product: Product
 }
 
 const ProductTabs = ({ product }: ProductTabsProps) => {
@@ -20,7 +17,7 @@ const ProductTabs = ({ product }: ProductTabsProps) => {
         component: <ProductInfoTab product={product} />,
       },
       {
-        label: "Shipping & Returns",
+        label: "Shipping & Return",
         component: <ShippingInfoTab />,
       },
     ]
@@ -51,37 +48,30 @@ const ProductInfoTab = ({ product }: ProductTabsProps) => {
         <div className="flex flex-col gap-y-4">
           <div>
             <span className="font-semibold">Material</span>
-            <p>{product.material ? product.material : "-"}</p>
+            <p>{product.title}</p>
           </div>
           <div>
             <span className="font-semibold">Country of origin</span>
-            <p>{product.origin_country ? product.origin_country : "-"}</p>
+            <p>cameroun</p>
           </div>
           <div>
             <span className="font-semibold">Type</span>
-            <p>{product.type ? product.type.value : "-"}</p>
+            <p>tyoe</p>
           </div>
         </div>
         <div className="flex flex-col gap-y-4">
           <div>
             <span className="font-semibold">Weight</span>
-            <p>{product.weight ? `${product.weight} g` : "-"}</p>
+            <p>50</p>
           </div>
           <div>
             <span className="font-semibold">Dimensions</span>
             <p>
-              {product.length && product.width && product.height
-                ? `${product.length}L x ${product.width}W x ${product.height}H`
-                : "-"}
+             200*150
             </p>
           </div>
         </div>
       </div>
-      {product.tags?.length ? (
-        <div>
-          <span className="font-semibold">Tags</span>
-        </div>
-      ) : null}
     </div>
   )
 }
