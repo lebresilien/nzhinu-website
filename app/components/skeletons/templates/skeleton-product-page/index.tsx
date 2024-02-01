@@ -5,8 +5,8 @@ import SkeletonButton from "@/app/components/skeletons/components/skeleton-butto
 const SkeletonProductPage = () => {
   return (
     <div>
-      <div className="content-container flex flex-col small:flex-row small:items-start py-6 relative animate-pulse">
-        <div className="flex flex-col small:sticky small:top-48 small:py-0 small:max-w-[300px] w-full py-8 gap-y-6">
+      <div className="container flex flex-col xs:flex-row xs:items-start py-6 relative animate-pulse">
+        <div className="flex flex-col xs:sticky xs:top-48 xs:py-0 xs:max-w-[300px] w-full py-8 gap-y-6">
           <div id="product-info">
             <div className="flex flex-col gap-y-4 lg:max-w-[500px] mx-auto">
               <div className="relative h-6 w-1/3 bg-gray-100"></div>
@@ -36,7 +36,7 @@ const SkeletonProductPage = () => {
             })}
           </div>
         </div>
-        <div className="flex flex-col small:sticky small:top-48 small:py-0 small:max-w-[300px] w-full py-8 gap-y-12">
+        <div className="flex flex-col xs:sticky xs:top-48 xs:py-0 xs:max-w-[300px] w-full py-8 gap-y-12">
           <div>
             <div className="flex flex-col lg:max-w-[500px] mx-auto">
               <div>

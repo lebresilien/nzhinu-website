@@ -1,7 +1,7 @@
 "use client"
 
 import { CategoryProduct } from "@/app/types/global"
-import ProductPreview from "@/app/components/products/product-preview"
+import ProductPreview from "@/app/components/products/components/product-preview"
 import { Text } from "@medusajs/ui"
 import InteractiveLink from "@/app/components/interactive-link" 
 import { getDictionary } from "@/get-dictionary"
