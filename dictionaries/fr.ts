@@ -53,14 +53,16 @@ const fr = {
         password: 'Mot de passe'
     },
     products: {
-        infos: 'Produi et Informations',
+        infos: 'Produits et Informations',
         shipping: 'Transport & Retour',
         delivery: 'Livraison rapide',
         fast: 'Votre colis arrivera dans les 3 à 5 jours ouvrables à votre lieu d\'enlèvement ou dans le confort de votre domicile.',
         simple: 'Des échanges simples',
         exchange: 'Ca ne vous concient pas? Ne vous inquiétez pas, nous échangerons votre produit contre un nouveau.',
         easy: 'Retour facile',
-        back: 'Retournez-nous simplement votre produit et nous vous rembourserons. Aucune question n\'est posée-nous ferons de notre mieux pour que votre retour se fasse sans problème.'
+        back: 'Retournez-nous simplement votre produit et nous vous rembourserons. Aucune question n\'est posée-nous ferons de notre mieux pour que votre retour se fasse sans problème.',
+        material: 'Matériaux',
+        weight: 'Poids'
     }
 }
 

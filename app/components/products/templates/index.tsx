@@ -10,6 +10,7 @@ import MobileActions from "@/app/components/products/components/mobile-actions"
 import ProductOnboardingCta from "@/app/components/products/components/product-onboarding-cta"
 import { Product } from "@/app/types/global"
 import { getDictionary } from "@/get-dictionary"
+import ProductActions from "../components/product-actions"
 
 type ProductTemplateProps = {
   product: Product,
@@ -42,7 +43,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, dict }) => {
           className="flex flex-col sm:sticky sm:top-48 sm:py-0 sm:max-w-[300px] w-full py-8 gap-y-12"
           ref={infoRef}
         >
-          {isOnboarding && <ProductOnboardingCta />}
+          <ProductActions product={product} />
         </div>
       </div>
      {/*  <div className="content-container my-16 px-6 small:px-8 small:my-32">

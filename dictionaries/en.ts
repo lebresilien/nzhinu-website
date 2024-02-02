@@ -60,7 +60,9 @@ const en = {
         simple: 'Simple exchanges',
         exchange: 'Is the fit not quite right? No worries - we&apos;ll exchange your product for a new one.',
         easy: 'Easy returns',
-        back: ' Just return your product and we&apos;ll refund your money. No questions asked – we&apos;ll do our best to make sure your return is hassle-free.'
+        back: ' Just return your product and we&apos;ll refund your money. No questions asked – we&apos;ll do our best to make sure your return is hassle-free.',
+        material: 'Matériaux',
+        weight: 'Poids'
     }
 }
 

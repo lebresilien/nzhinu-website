@@ -40,5 +40,5 @@ export default async function ProductPage({
   const response = await axios.get(`${process.env.BACKEND_URL}/api/products/${lang}/${slug}`);
   const product = response.data
 
-  return <ProductTemplate product={product} dict={dict} />
+  return <ProductTemplate product={product} dict={dict['products']} />
 }
