@@ -1,8 +1,9 @@
 
 import ProductTemplate from "@/app/components/products/templates"
+import { getDictionary } from "@/get-dictionary"
 import axios from "axios"
+import { Locale } from "@/i18n-config";
 import { Metadata } from "next"
-import { notFound } from "next/navigation"
 
 type Props = {
   params: { slug: string }
@@ -33,7 +34,11 @@ export default async function ProductPage({
 }: Readonly<{
 	params: { lang: Locale, slug: string },
 }>) {
+
+  const dict = await getDictionary(lang)
+
   const response = await axios.get(`${process.env.BACKEND_URL}/api/products/${lang}/${slug}`);
   const product = response.data
-  return <ProductTemplate product={product} />
+
+  return <ProductTemplate product={product} dict={dict} />
 }

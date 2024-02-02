@@ -51,6 +51,16 @@ const en = {
         email: 'Email',
         phone: 'Phone',
         password: 'Password'
+    },
+    products: {
+        infos: 'Product Informations',
+        shipping: 'Shipping & Return',
+        delivery: 'Fast delivery',
+        fast: 'Your package will arrive in 3-5 business days at your pick up location or in the comfort of your home.',
+        simple: 'Simple exchanges',
+        exchange: 'Is the fit not quite right? No worries - we&apos;ll exchange your product for a new one.',
+        easy: 'Easy returns',
+        back: ' Just return your product and we&apos;ll refund your money. No questions asked – we&apos;ll do our best to make sure your return is hassle-free.'
     }
 }
 

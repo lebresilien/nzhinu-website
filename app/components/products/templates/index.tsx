@@ -9,12 +9,14 @@ import ImageGallery from "@/app/components/products/components/image-gallery"
 import MobileActions from "@/app/components/products/components/mobile-actions"
 import ProductOnboardingCta from "@/app/components/products/components/product-onboarding-cta"
 import { Product } from "@/app/types/global"
+import { getDictionary } from "@/get-dictionary"
 
 type ProductTemplateProps = {
-  product: Product
+  product: Product,
+  dict: Awaited<ReturnType<typeof getDictionary>>['products']
 }
 
-const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
+const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, dict }) => {
   const [isOnboarding, setIsOnboarding] = useState<boolean>(false)
 
   const infoRef = useRef<HTMLDivElement>(null)
@@ -29,15 +31,15 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
   return (
     <ProductProvider product={product}>
       <div className="container flex flex-col sm:flex-row sm:items-start py-6 relative">
-        <div className="flex flex-col sm:sticky sma:top-48 sm:py-0 sm:max-w-[300px] w-full py-8 gap-y-6">
+        <div className="flex flex-col sm:sticky sm:top-48 sm:py-0 sm:max-w-[300px] w-full py-8 gap-y-6">
           <ProductInfo product={product} />
-          <ProductTabs product={product} />
+          <ProductTabs product={product}  dict={dict}/>
         </div>
         <div className="block w-full relative">
           <ImageGallery images={product.thumbnail} />
         </div>
         <div
-          className="flex flex-col xs:sticky xs:top-48 xs:py-0 xs:max-w-[300px] w-full py-8 gap-y-12"
+          className="flex flex-col sm:sticky sm:top-48 sm:py-0 sm:max-w-[300px] w-full py-8 gap-y-12"
           ref={infoRef}
         >
           {isOnboarding && <ProductOnboardingCta />}
