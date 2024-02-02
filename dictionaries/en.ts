@@ -62,7 +62,8 @@ const en = {
         easy: 'Easy returns',
         back: ' Just return your product and we&apos;ll refund your money. No questions asked – we&apos;ll do our best to make sure your return is hassle-free.',
         material: 'Matériaux',
-        weight: 'Poids'
+        weight: 'Poids',
+        add: 'Add to cart'
     }
 }
 

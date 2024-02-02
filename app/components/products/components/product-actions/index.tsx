@@ -2,14 +2,16 @@ import {
   ProductProvider,
 } from "@/app/lib/context/product-context"
 import { Product } from "@/app/types/global"
+import { getDictionary } from "@/get-dictionary"
 import { Button } from "@medusajs/ui"
 import React, { useMemo } from "react"
 
 type ProductActionsProps = {
-  product: Product
+  product: Product,
+  dict: Awaited<ReturnType<typeof getDictionary>>['products']
 }
 
-const ProductActionsInner: React.FC<ProductActionsProps> = ({ product }) => {
+const ProductActionsInner: React.FC<ProductActionsProps> = ({ product, dict }) => {
 
   return (
     <div className="flex flex-col gap-y-2">
@@ -25,15 +27,15 @@ const ProductActionsInner: React.FC<ProductActionsProps> = ({ product }) => {
         variant="primary"
         className="w-full h-10 text-sm text-white bg-black"
       >
-        Add to cart
+        {dict['add']}
       </Button>
     </div>
   )
 }
 
-const ProductActions: React.FC<ProductActionsProps> = ({ product }) => (
+const ProductActions: React.FC<ProductActionsProps> = ({ product, dict }) => (
   <ProductProvider product={product}>
-    <ProductActionsInner product={product} />
+    <ProductActionsInner product={product} dict={dict} />
   </ProductProvider>
 )
 

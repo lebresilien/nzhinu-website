@@ -7,7 +7,6 @@ import ProductInfo from "@/app/components/products/templates/product-info"
 import ProductTabs from "@/app/components/products/components/product-tabs"
 import ImageGallery from "@/app/components/products/components/image-gallery"
 import MobileActions from "@/app/components/products/components/mobile-actions"
-import ProductOnboardingCta from "@/app/components/products/components/product-onboarding-cta"
 import { Product } from "@/app/types/global"
 import { getDictionary } from "@/get-dictionary"
 import ProductActions from "../components/product-actions"
@@ -43,7 +42,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, dict }) => {
           className="flex flex-col sm:sticky sm:top-48 sm:py-0 sm:max-w-[300px] w-full py-8 gap-y-12"
           ref={infoRef}
         >
-          <ProductActions product={product} />
+          <ProductActions product={product} dict={dict} />
         </div>
       </div>
      {/*  <div className="content-container my-16 px-6 small:px-8 small:my-32">

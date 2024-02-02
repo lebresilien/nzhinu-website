@@ -62,7 +62,8 @@ const fr = {
         easy: 'Retour facile',
         back: 'Retournez-nous simplement votre produit et nous vous rembourserons. Aucune question n\'est posée-nous ferons de notre mieux pour que votre retour se fasse sans problème.',
         material: 'Matériaux',
-        weight: 'Poids'
+        weight: 'Poids',
+        add: 'Ajouter au panier'
     }
 }
 
