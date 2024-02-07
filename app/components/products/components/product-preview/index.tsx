@@ -9,7 +9,7 @@ const ProductPreview = ({
   price,
   slug,
 }: Product) => (
-  <Link href={`/products/${slug}`} className="group">
+  <a href={`/products/${slug}`} className="group">
     <div>
       <Thumbnail thumbnail={thumbnail} size="full" />
       <div className="flex font-medium mt-4 justify-between">
@@ -21,7 +21,7 @@ const ProductPreview = ({
         </div>
       </div>
     </div>
-  </Link>
+  </a>
 )
 
 export default ProductPreview
