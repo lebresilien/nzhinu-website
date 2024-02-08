@@ -1,5 +1,5 @@
 import React from "react"
-import { IconProps } from "types/icon"
+import { IconProps } from "@/app/types/icon"
 
 const Refresh: React.FC<IconProps> = ({
   size = "16",

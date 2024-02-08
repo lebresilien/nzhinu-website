@@ -25,7 +25,7 @@ const Item = ({ product }: ItemProps) => {
       </Table.Cell>
 
       <Table.Cell className="text-left">
-        <Text className="txt-medium-plus text-ui-fg-base">{product.title}</Text>
+        <Text className="text-md">{product.title}</Text>
       </Table.Cell>
         <Table.Cell>
           <div className="flex gap-2">
