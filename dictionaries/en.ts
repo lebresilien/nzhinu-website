@@ -8,7 +8,8 @@ const en = {
         nav: {
             name: "Nzhinu Creation",
             account: "Account",
-            sign: 'Sign in'
+            sign: 'Sign in',
+            cart: 'Cart'
         },
         sidebar: {
             home: "Home",

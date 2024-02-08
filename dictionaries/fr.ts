@@ -8,7 +8,8 @@ const fr = {
         nav: {
            name: "Nzhinu Création",
            account: "Mon compte",
-           sign: 'Se connecter'
+           sign: 'Se connecter',
+           cart: 'Pagnier'
         },
         sidebar: {
             home: "Accueil",

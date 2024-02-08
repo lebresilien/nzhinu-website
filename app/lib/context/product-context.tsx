@@ -7,70 +7,52 @@ import React, {
   useMemo,
   useState,
 } from "react"
-import { Product } from "@/app/types/global" 
+import { Cart } from "@/app/types/global" 
 
 interface ProductContext {
-  quantity: number,
-  price: number,
-  increaseQuantity: () => void
-  decreaseQuantity: () => void
-  addToCart: () => void
+  cart: Cart[] | []
+  increaseQuantity: (product: Cart) => void
+  decreaseQuantity: (product: Cart) => void
+  addToCart: (product: Cart) => void
 }
 
 const ProductActionContext = createContext<ProductContext | null>(null)
 
 interface ProductProviderProps {
-  children?: React.ReactNode,
-  product: Product
+  children: React.ReactNode,
+  cart?: Cart[] | []
 }
 
 export const ProductProvider = ({
   children,
 }: ProductProviderProps) => {
-  const [quantity, setQuantity] = useState<number>(1)
-  const [price, setPrice] = useState<number>(1)
-  const [options, setOptions] = useState<Record<string, string>>({})
+  const [cart, setCart] = useState<Cart[]>([])
 
-
-  // memoized function to check if the current options are a valid variant
- 
-
-  // if product only has one variant, then select it
- 
-
- 
-
-  // memoized function to get the price of the current variant
-
-
-  const updateOptions = (update: Record<string, string>) => {
-    setOptions({ ...options, ...update })
-  }
-
-  const addToCart = () => {
-    /* if (variant) {
-      addItem({
-        variantId: variant.id,
-        quantity,
-      })
-    } */
-  }
-
-  const increaseQuantity = () => {
-    setQuantity(quantity + 1)
-  }
-
-  const decreaseQuantity = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1)
+  const addToCart = (product: Cart) => {
+    const itemInCart = cart.find((item) => item.id == product.id);
+    if (itemInCart?.id) {
+      itemInCart.quantity++;
+    } else {
+      setCart([...cart, product])
     }
+  }
+
+  const increaseQuantity = (product: Cart) => {
+    const itemInCart = cart.find((item) => item.id == product.id);
+    itemInCart && itemInCart.quantity++;
+    setCart([...cart, product])
+  }
+
+  const decreaseQuantity = (product: Cart) => {
+    const itemInCart = cart.find((item) => item.id == product.id);
+    itemInCart && itemInCart.quantity--;
+    setCart([...cart, product])
   }
 
   return (
     <ProductActionContext.Provider
       value={{
-        quantity,
-        price,
+        cart,
         addToCart,
         decreaseQuantity,
         increaseQuantity,

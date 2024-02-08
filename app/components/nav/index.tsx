@@ -1,11 +1,10 @@
 "use client"
 
-import { useMobileMenu } from "@/app/lib/context/mobile-menu-context"
-import Hamburger from "../hamburger"
 import SideMenu from "../side-menu"
 import MobileMenu from "../mobile-menu/templates"
 import Link from "next/link"
 import { getDictionary } from "@/get-dictionary"
+import { useProductActions } from "@/app/lib/context/product-context"
 
 type Props = {
 	dic: Awaited<ReturnType<typeof getDictionary>>['home']
@@ -13,7 +12,8 @@ type Props = {
 
 const Nav = ({ dic }: Props) => {
     
-  const { toggle } = useMobileMenu()
+  const { cart } = useProductActions()
+  console.log('manager', cart)
 
   return (
     <div className="sticky top-0 inset-x-0 z-50 group">
@@ -41,6 +41,9 @@ const Nav = ({ dic }: Props) => {
             <div className="flex items-center gap-x-6 h-full">
               <Link className="hover:text-ui-fg-base" href="/login">
                 {dic['nav']['account']}
+              </Link>
+              <Link className="hover:text-ui-fg-base" href="/login">
+                {dic['nav']['cart']} {`(${cart.length})`}
               </Link>
             </div>
           </div>

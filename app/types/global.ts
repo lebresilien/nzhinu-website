@@ -25,3 +25,10 @@ export type Category = {
   slug: string
 }
 
+export type Cart = {
+  id: string
+  title: string
+  thumbnail: string
+  price: number,
+  quantity: number
+}
