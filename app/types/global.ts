@@ -31,4 +31,5 @@ export type Cart = {
   thumbnail: string
   price: number,
   quantity: number
+  handle?: string
 }

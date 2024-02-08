@@ -13,7 +13,6 @@ type Props = {
 const Nav = ({ dic }: Props) => {
     
   const { cart } = useProductActions()
-  console.log('manager', cart)
 
   return (
     <div className="sticky top-0 inset-x-0 z-50 group">
@@ -42,7 +41,7 @@ const Nav = ({ dic }: Props) => {
               <Link className="hover:text-ui-fg-base" href="/login">
                 {dic['nav']['account']}
               </Link>
-              <Link className="hover:text-ui-fg-base" href="/login">
+              <Link className="hover:text-ui-fg-base" href="/cart">
                 {dic['nav']['cart']} {`(${cart.length})`}
               </Link>
             </div>
