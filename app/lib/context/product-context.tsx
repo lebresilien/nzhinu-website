@@ -8,6 +8,7 @@ import React, {
   useState,
 } from "react"
 import { Cart } from "@/app/types/global" 
+import Item from "@/app/components/cart/components/item"
 
 interface ProductContext {
   cart: Cart[] | []
@@ -26,8 +27,9 @@ interface ProductProviderProps {
 export const ProductProvider = ({
   children,
 }: ProductProviderProps) => {
-  const [cart, setCart] = useState<Cart[]>([])
-
+  const item = {id: '1', title: 'title', thumbnail: '', price: 200, quantity: 2}
+  const [cart, setCart] = useState<Cart[]>([item])
+  
   const addToCart = (product: Cart) => {
     const itemInCart = cart.find((item) => item.id == product.id);
     if (itemInCart?.id) {

@@ -65,6 +65,20 @@ const en = {
         material: 'Matériaux',
         weight: 'Poids',
         add: 'Add to cart'
+    },
+    cart: {
+        title: 'Cart',
+        item: 'Item',
+        quantity: 'Quantity',
+        checkout: 'Confirm',
+        shipping: 'Shipping',
+        subtotal: 'SubTotal',
+        already: 'Already have an account?',
+        sign: 'Sign in for a better experience.',
+        summary: 'Summary',
+        price: 'Price',
+        explore: 'Explore articles',
+        browse: 'You don\'t have anything in your bag. Let\'s change that, use the link below to start browsing our products.'
     }
 }
 

@@ -7,8 +7,14 @@ import ItemsTemplate from "./items"
 import Summary from "./summary"
 import Divider from "@/app/components/divider"
 import { useProductActions } from "@/app/lib/context/product-context"
+import { getDictionary } from "@/get-dictionary"
 
-const CartTemplate = () => {
+type CartTemplateProps = {
+  dict: Awaited<ReturnType<typeof getDictionary>>
+}
+
+const CartTemplate = ({ dict }: CartTemplateProps) => {
+
   const { cart } = useProductActions()
 
   if (!cart) {
@@ -23,19 +29,19 @@ const CartTemplate = () => {
             <div className="flex flex-col sm:col-span-2 p-6 gap-y-6">
              {/*  {!customer && ( */}
                 <>
-                  <SignInPrompt />
+                  <SignInPrompt dict={dict} />
                   <Divider />
                 </>
              {/*  )} */}
 
-              <ItemsTemplate products={cart} />
+              <ItemsTemplate products={cart} dict={dict} />
             </div>
             <div className="relative">
               <div className="flex flex-col gap-y-8 sticky top-12">
                 {cart && 
                   <>
                     <div className="p-6">
-                      <Summary cart={cart} />
+                      <Summary cart={cart} dict={dict} />
                     </div>
                   </>
                 }
@@ -44,7 +50,7 @@ const CartTemplate = () => {
           </div>
         ) : (
           <div>
-            <EmptyCartMessage />
+            <EmptyCartMessage dict={dict} />
           </div>
         )}
       </div>

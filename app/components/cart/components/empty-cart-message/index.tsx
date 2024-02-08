@@ -1,21 +1,25 @@
 import { Heading, Text } from "@medusajs/ui"
 import UnderlineLink from "@/app/components/interactive-link"
+import { getDictionary } from "@/get-dictionary"
 
-const EmptyCartMessage = () => {
+type Props = {
+  dict: Awaited<ReturnType<typeof getDictionary>>
+}
+
+const EmptyCartMessage = ({ dict }: Props) => {
   return (
     <div className="py-48 flex flex-col justify-center items-start">
       <Heading
         level="h1"
         className="flex flex-row text-3xl-regular gap-x-2 items-baseline"
       >
-        Cart
+        { dict['cart']['title'] }
       </Heading>
       <Text className="text-base-regular mt-4 mb-6 max-w-[32rem]">
-        You don&apos;t have anything in your bag. Let&apos;s change that, use
-        the link below to start browsing our products.
+        { dict['cart']['browse'] }
       </Text>
       <div>
-        <UnderlineLink href="/store">Explore products</UnderlineLink>
+        <UnderlineLink href="/">{ dict['cart']['explore'] }</UnderlineLink>
       </div>
     </div>
   )
