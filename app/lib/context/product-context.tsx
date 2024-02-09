@@ -8,13 +8,13 @@ import React, {
   useState,
 } from "react"
 import { Cart } from "@/app/types/global" 
-import Item from "@/app/components/cart/components/item"
 
 interface ProductContext {
   cart: Cart[] | []
-  increaseQuantity: (product: Cart) => void
-  decreaseQuantity: (product: Cart) => void
+  updateQuantity: (id: string, value: number) => void
   addToCart: (product: Cart) => void
+  remove: (id: string) => void,
+  sum: () => number
 }
 
 const ProductActionContext = createContext<ProductContext | null>(null)
@@ -39,16 +39,24 @@ export const ProductProvider = ({
     }
   }
 
-  const increaseQuantity = (product: Cart) => {
-    const itemInCart = cart.find((item) => item.id == product.id);
-    itemInCart && itemInCart.quantity++;
-    setCart([...cart, product])
+  const updateQuantity = (id: string, value: number) => {
+    setCart(prevItems =>
+      prevItems.map(item => (item.id === id ? { ...item, quantity: value } : item))
+    );
   }
 
-  const decreaseQuantity = (product: Cart) => {
-    const itemInCart = cart.find((item) => item.id == product.id);
-    itemInCart && itemInCart.quantity--;
-    setCart([...cart, product])
+
+  const remove = (id: string) => {
+    const itemInCart = cart.filter((item) => item.id !== id);
+    setCart(itemInCart)
+  }
+
+  const sum = () => {
+    let amount = 0
+    for(const i in cart) {
+      amount += cart[i].quantity * cart[i].price; 
+    }
+    return amount
   }
 
   return (
@@ -56,8 +64,9 @@ export const ProductProvider = ({
       value={{
         cart,
         addToCart,
-        decreaseQuantity,
-        increaseQuantity,
+        updateQuantity,
+        remove,
+        sum
       }}
     >
       {children}

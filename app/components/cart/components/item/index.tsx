@@ -6,12 +6,15 @@ import Trash from "@/app/components/icons/trash"
 import Thumbnail from "@/app/components/products/components/thumbnail"
 import Link from "next/link"
 import { Cart } from "@/app/types/global"
+import { useProductActions } from "@/app/lib/context/product-context"
 
 type ItemProps = {
   product: Cart
 }
 
 const Item = ({ product }: ItemProps) => {
+
+  const { remove, updateQuantity } = useProductActions()
 
   return (
     <Table.Row className="w-full">
@@ -31,17 +34,24 @@ const Item = ({ product }: ItemProps) => {
           <div className="flex gap-2">
             <button
               className="flex items-center gap-x-"
-              onClick={() => {}}
+              onClick={() => remove(product.id)}
             >
               <Trash size={18} />
             </button>
             <CartItemSelect
+              value={product.quantity}
+              onChange={(value) =>
+                updateQuantity(
+                  product.id,
+                  parseInt(value.target.value),
+                )
+              }
               className="w-14 h-10 p-4"
             >
               {Array.from(
                 [
                   ...Array(
-                    product.quantity > 0
+                    product.quantity > 10
                       ? product.quantity
                       : 10
                   ),
