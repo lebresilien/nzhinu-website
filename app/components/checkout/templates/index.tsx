@@ -14,8 +14,8 @@ const CheckoutTemplate = ({ dict }: Props) => {
     <>
       <div className="bg-white relative sm:min-h-screen">
         {/* <SubmitSpinner /> */}
-        <div className="h-16 bg-white">
-          <nav className="flex items-center h-full justify-between content-container border-b">
+        <div className="h-10 bg-white">
+          <nav className="flex items-center h-full justify-between content-container">
             <Link
               href="/cart"
               className="text-sm text-gray-700 flex items-center gap-x-2 uppercase flex-1 basis-0"
@@ -28,18 +28,12 @@ const CheckoutTemplate = ({ dict }: Props) => {
                 <span className="mt-px block sm:hidden">Back</span>
               </>
             </Link>
-            <Link
-              href="/"
-              className="txt-compact-xlarge-plus text-ui-fg-subtle hover:text-ui-fg-base uppercase"
-            >
-              Nzhinu store 
-            </Link>
             <div className="flex-1 basis-0" />
           </nav>
         </div>
         <div className="relative">
           <CheckoutLoader />
-          <div className="grid grid-cols-1 small:grid-cols-[1fr_416px] content-container gap-x-40 py-12">
+          <div className="grid grid-cols-1 sm:grid-cols-[1fr_416px] container gap-x-40 py-12">
             <CheckoutForm />
             <CheckoutSummary dict={dict}/>
           </div>

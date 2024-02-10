@@ -6,8 +6,6 @@ import { CheckoutFormValues } from "@/app/types/global"
 const BillingAddress = () => {
   return (
 
-   
-        
         <div className="grid grid-cols-2 gap-4">
           <Input
             label="First name"
@@ -37,6 +35,13 @@ const BillingAddress = () => {
             label="Phone"
             autoComplete="tel"
             name="phone"
+            required
+          />
+           <Input
+            label="Email"
+            autoComplete="email"
+            name="email"
+            required
           />
         </div>
   )
