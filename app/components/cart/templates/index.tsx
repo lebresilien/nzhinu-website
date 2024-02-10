@@ -41,7 +41,7 @@ const CartTemplate = ({ dict }: CartTemplateProps) => {
                 {cart && 
                   <>
                     <div className="p-6">
-                      <Summary cart={cart} dict={dict} />
+                      <Summary dict={dict} />
                     </div>
                   </>
                 }

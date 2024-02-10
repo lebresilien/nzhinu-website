@@ -75,7 +75,7 @@ const fr = {
         subtotal: 'Sous-Total',
         already: 'Vous avez déja un compte?',
         sign: 'Connectez vous pour une meilleure experience.',
-        summary: 'Resummé',
+        summary: 'Resumé',
         price: 'Prix',
         explore: 'Parcourez les articles',
         browse: 'Vous n\'avez rien dans votre pagnier. Utilisez le lien ci-dessous pour commencer à parcourir nos produits.'

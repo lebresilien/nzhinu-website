@@ -33,3 +33,16 @@ export type Cart = {
   quantity: number
   handle?: string
 }
+
+export type AddressValues = {
+  first_name: string
+  last_name: string
+  address_1: string
+  city: string
+  phone: string
+}
+
+export type CheckoutFormValues = {
+  billing_address: AddressValues
+  email: string
+}

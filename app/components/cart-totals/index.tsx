@@ -1,16 +1,12 @@
-import { Tooltip } from "@medusajs/ui"
-import { InformationCircleSolid } from "@medusajs/icons"
 import React from "react"
-import { Cart } from "@/app/types/global"
 import { getDictionary } from "@/get-dictionary"
 import { useProductActions } from "@/app/lib/context/product-context"
 
 type CartTotalsProps = {
-  data: Cart[]
   dict: Awaited<ReturnType<typeof getDictionary>>
 }
 
-const CartTotals: React.FC<CartTotalsProps> = ({ data, dict }) => {
+const CartTotals: React.FC<CartTotalsProps> = ({ dict }) => {
   
   const { sum } = useProductActions()
 

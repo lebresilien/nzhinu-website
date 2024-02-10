@@ -75,7 +75,7 @@ const en = {
         subtotal: 'SubTotal',
         already: 'Already have an account?',
         sign: 'Sign in for a better experience.',
-        summary: 'Summary',
+        summary: 'Sumary',
         price: 'Price',
         explore: 'Explore articles',
         browse: 'You don\'t have anything in your bag. Let\'s change that, use the link below to start browsing our products.'
