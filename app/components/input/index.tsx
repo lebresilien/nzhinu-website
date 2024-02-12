@@ -43,16 +43,16 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     return (
       <div className="flex flex-col w-full">
         {topLabel && (
-          <Label className="mb-2 txt-compact-medium-plus">{topLabel}</Label>
+          <Label className="mb-10">{topLabel}</Label>
         )}
-        <div className="flex relative z-0 w-full txt-compact-medium">
+        <div className="flex relative z-0 w-full">
           <input
             type={inputType}
             name={name}
             aria-invalid={hasError}
             placeholder=" "
             className={clsx(
-              "pt-4 pb-1 block w-full h-11 px-4 mt-0 bg-ui-bg-field border rounded-md appearance-none focus:outline-none focus:ring-0 focus:shadow-borders-interactive-with-active border-ui-border-base hover:bg-ui-bg-field-hover",
+              "pt-8 pb-4 block w-full h-11 px-4 mt-0 border rounded-md appearance-none focus:outline-none focus:ring-0",
               {
                 "border-rose-500 focus:border-rose-500": hasError,
               }

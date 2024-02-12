@@ -12,17 +12,17 @@ type Props = {
 }
 
 const LoginTemplate = ({ dic }: Props) => {
-  const { loginView } = useAccount()
+  const { loginView, user } = useAccount()
   const [currentView, _] = loginView
 
   const router = useRouter()
-
+  console.log('useruuuuu', user)
   /* useEffect(() => {
-    if (!retrievingCustomer && customer) {
-      router.push("/account")
+    if (user) {
+      router.push("/")
     }
-  }, [customer, retrievingCustomer, router])
- */
+  }, [user, router]) */
+ 
   return (
     <div className="w-full flex justify-center px-8 py-12">
       {currentView === "sign-in" ? <Login dic={dic} /> : <Register dic={dic} />}

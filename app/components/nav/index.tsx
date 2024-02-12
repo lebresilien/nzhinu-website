@@ -30,7 +30,7 @@ const Nav = ({ dic }: Props) => {
           <div className="flex items-center h-full">
             <Link
               href="/"
-              className="txt-compact-xlarge-plus hover:text-ui-fg-base uppercase"
+              className="uppercase"
             >
               {dic['nav']['name']}
             </Link>
@@ -38,10 +38,10 @@ const Nav = ({ dic }: Props) => {
 
           <div className="flex items-center gap-x-6 h-full flex-1 basis-0 justify-end">
             <div className="flex items-center gap-x-6 h-full">
-              <Link className="hover:text-ui-fg-base" href="/login">
+              <Link href="/login">
                 {dic['nav']['account']}
               </Link>
-              <Link className="hover:text-ui-fg-base" href="/cart">
+              <Link href="/cart">
                 {dic['nav']['cart']} {`(${cart.length})`}
               </Link>
             </div>

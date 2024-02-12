@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation"
 import { useState } from "react"
 import { FieldValues, useForm } from "react-hook-form"
 import { getDictionary } from "@/get-dictionary"
+import ErrorMessage from "@/app/components/error-message"
 
 type Props = {
 	dic: Awaited<ReturnType<typeof getDictionary>>['login']
@@ -17,14 +18,10 @@ interface SignInCredentials extends FieldValues {
 }
 
 const Login = ({ dic }: Props) => {
-  const { loginView } = useAccount()
+  const { loginView, handleLogin, loading, setLoading, error, setError } = useAccount()
   const [_, setCurrentView] = loginView
   const [authError, setAuthError] = useState<string | undefined>(undefined)
   const router = useRouter()
-
-  const handleError = (_e: Error) => {
-    setAuthError("Invalid email or password")
-  }
 
   const {
     register,
@@ -32,11 +29,13 @@ const Login = ({ dic }: Props) => {
     formState: { errors, isSubmitting },
   } = useForm<SignInCredentials>()
 
-  const onSubmit = () => {}
+  const onSubmit = handleSubmit(async (credentials) => {
+    handleLogin(credentials)
+  })
 
   return (
     <div className="max-w-sm w-full flex flex-col items-center">
-      {isSubmitting && (
+      {loading && (
         <div className="z-10 fixed inset-0 bg-white bg-opacity-50 flex items-center justify-center">
           <Spinner />
         </div>
@@ -61,11 +60,9 @@ const Login = ({ dic }: Props) => {
             errors={errors}
           />
         </div>
-        {authError && (
-          <div>
-            <span className="text-rose-500 w-full text-sm">
-              {dic['error_login']}
-            </span>
+        {error && (
+          <div className="mt-5 flex items-center justify-center">
+            <ErrorMessage message={error} />
           </div>
         )}
         <Button className="mt-6 w-full bg-gray-900 text-white p-2 hover:bg-gray-800" size="large">

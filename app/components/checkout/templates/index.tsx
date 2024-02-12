@@ -15,7 +15,7 @@ const CheckoutTemplate = ({ dict }: Props) => {
       <div className="bg-white relative sm:min-h-screen">
         {/* <SubmitSpinner /> */}
         <div className="h-10 bg-white">
-          <nav className="flex items-center h-full justify-between content-container">
+          <nav className="flex items-center h-full justify-between content-container text-muted-foreground">
             <Link
               href="/cart"
               className="text-sm text-gray-700 flex items-center gap-x-2 uppercase flex-1 basis-0"

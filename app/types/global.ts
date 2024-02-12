@@ -46,3 +46,16 @@ export type CheckoutFormValues = {
   billing_address: AddressValues
   email: string
 }
+
+export type User = {
+  firstName: string
+  lastName: string
+  email: string
+}
+
+export type ErrCallbackType = (err: { [key: string]: string }) => void
+
+export type LoginParams = {
+  email: string
+  password: string
+}
