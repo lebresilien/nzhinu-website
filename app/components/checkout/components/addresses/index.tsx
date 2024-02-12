@@ -2,8 +2,13 @@ import { Button, Heading, Text } from "@medusajs/ui"
 import Spinner from "@/app/components/icons/spinner"
 import BillingAddress from "../billing_address"
 import Divider from "@/app/components/divider"
+import { getDictionary } from "@/get-dictionary"
 
-const Addresses = () => {
+type Props = {
+  dict: Awaited<ReturnType<typeof getDictionary>>
+}
+
+const Addresses = ({ dict }: Props) => {
  
   return (
     <div className="bg-white px-4 sm:px-8">
@@ -13,10 +18,10 @@ const Addresses = () => {
           level="h2"
           className="text-3xl-regular gap-x-4 pb-6 pt-8"
         >
-          Billing address
+          {dict['checkout']['billing']}
         </Heading>
 
-        <BillingAddress />
+        <BillingAddress dict={dict} />
       </div>
 
       <Button
@@ -24,7 +29,7 @@ const Addresses = () => {
         className="bg-black mt-6 text-white p-2"
         onClick={() => {}}
       >
-        Continue to delivery
+        {dict['checkout']['delivery']}
       </Button>   
       <div className="">
         {/* <Spinner /> */}

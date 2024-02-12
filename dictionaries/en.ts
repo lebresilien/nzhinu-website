@@ -79,6 +79,20 @@ const en = {
         price: 'Price',
         explore: 'Explore articles',
         browse: 'You don\'t have anything in your bag. Let\'s change that, use the link below to start browsing our products.'
+    },
+    checkout: {
+        firstname: 'First name',
+        lastname: 'Last name',
+        address: 'Address',
+        city: 'City',
+        phone: 'Phone',
+        email: 'Email',
+        delivery: 'Continue to delivery',
+        review: 'Review',
+        review_text: 'By clicking the Place Order button, you confirm that you have read, understand and accept our Terms of Use, Terms of Sale and Returns Policy and acknowledge that you have read Nzhinu Creation Privacy Policy.',
+        back1: 'Back to shopping cart',
+        back: 'Back',
+        billing: 'Delivery address'
     }
 }
 

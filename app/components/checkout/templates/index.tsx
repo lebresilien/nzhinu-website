@@ -9,6 +9,7 @@ import { getDictionary } from "@/get-dictionary"
 type Props = {
   dict: Awaited<ReturnType<typeof getDictionary>>
 }
+
 const CheckoutTemplate = ({ dict }: Props) => {
   return (
     <>
@@ -23,9 +24,9 @@ const CheckoutTemplate = ({ dict }: Props) => {
               <>
                 <ChevronDown className="rotate-90" size={16} />
                 <span className="mt-px hidden sm:block uppercase">
-                  Back to shopping cart
+                  {dict['checkout']['back1']}
                 </span>
-                <span className="mt-px block sm:hidden">Back</span>
+                <span className="mt-px block sm:hidden">{dict['checkout']['back']}</span>
               </>
             </Link>
             <div className="flex-1 basis-0" />
@@ -34,7 +35,7 @@ const CheckoutTemplate = ({ dict }: Props) => {
         <div className="relative">
           <CheckoutLoader />
           <div className="grid grid-cols-1 sm:grid-cols-[1fr_416px] container gap-x-40 py-12">
-            <CheckoutForm />
+            <CheckoutForm dict={dict}/>
             <CheckoutSummary dict={dict}/>
           </div>
         </div>

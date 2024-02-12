@@ -8,6 +8,7 @@ import Summary from "./summary"
 import Divider from "@/app/components/divider"
 import { useProductActions } from "@/app/lib/context/product-context"
 import { getDictionary } from "@/get-dictionary"
+import { useAccount } from "@/app/lib/context/account-context"
 
 type CartTemplateProps = {
   dict: Awaited<ReturnType<typeof getDictionary>>
@@ -16,6 +17,7 @@ type CartTemplateProps = {
 const CartTemplate = ({ dict }: CartTemplateProps) => {
 
   const { cart } = useProductActions()
+  const { user } = useAccount()
 
   if (!cart) {
     return <SkeletonCartPage />
@@ -27,12 +29,12 @@ const CartTemplate = ({ dict }: CartTemplateProps) => {
         {cart.length ? (
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-x-40">
             <div className="flex flex-col sm:col-span-2 p-6 gap-y-6">
-             {/*  {!customer && ( */}
+               {!user && ( 
                 <>
                   <SignInPrompt dict={dict} />
                   <Divider />
                 </>
-             {/*  )} */}
+              )} 
 
               <ItemsTemplate products={cart} dict={dict} />
             </div>

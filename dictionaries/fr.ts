@@ -79,6 +79,20 @@ const fr = {
         price: 'Prix',
         explore: 'Parcourez les articles',
         browse: 'Vous n\'avez rien dans votre pagnier. Utilisez le lien ci-dessous pour commencer à parcourir nos produits.'
+    },
+    checkout: {
+        firstname: 'Nom',
+        lastname: 'Prénom',
+        address: 'Addresse',
+        city: 'Ville',
+        phone: 'Téléphone',
+        email: 'Email',
+        delivery: 'Continuez',
+        review: 'Review',
+        review_text: 'By clicking the Place Order button, you confirm that you have read, understand and accept our Terms of Use, Terms of Sale and Returns Policy and acknowledge that you have read Nzhinu Creation Privacy Policy.',
+        back1: 'Retounez au pagnier',
+        back: 'Retour',
+        billing: 'Adresse de livraison'
     }
 }
 
