@@ -33,7 +33,7 @@ const CheckoutForm = ({ dict }: Props) => {
         </div> */}
 
         <div>
-          <Review />
+          <Review dict={dict} />
         </div>
       </div>
     </div>

@@ -19,14 +19,14 @@ const CheckoutSummary = ({ dict }: Props) => {
   }
 
   return (
-    <div className="sticky top-0 flex flex-col-reverse small:flex-col gap-y-8 py-8 px-4 small:py-0 small:pr-8 ">
+    <div className="sticky top-0 flex flex-col-reverse sm:flex-col gap-y-8 py-8 px-4 sm:py-0 sm:pr-8 ">
       <div className="w-full bg-white flex flex-col">
-        <Divider className="my-6 small:hidden" />
+        <Divider className="my-6 sm:hidden" />
         <Heading
           level="h2"
-          className="flex flex-row text-3xl-regular items-baseline"
+          className="flex flex-row text-3xl items-baseline"
         >
-          In your Cart
+          {dict['checkout']['in_cart']}
         </Heading>
         <Divider className="my-6" />
         <CartTotals dict={dict}/>

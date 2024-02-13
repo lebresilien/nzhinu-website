@@ -92,7 +92,8 @@ const en = {
         review_text: 'By clicking the Place Order button, you confirm that you have read, understand and accept our Terms of Use, Terms of Sale and Returns Policy and acknowledge that you have read Nzhinu Creation Privacy Policy.',
         back1: 'Back to shopping cart',
         back: 'Back',
-        billing: 'Delivery address'
+        billing: 'Delivery address',
+        in_cart: 'In your Cart'
     }
 }
 

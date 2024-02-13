@@ -89,10 +89,11 @@ const fr = {
         email: 'Email',
         delivery: 'Continuez',
         review: 'Review',
-        review_text: 'By clicking the Place Order button, you confirm that you have read, understand and accept our Terms of Use, Terms of Sale and Returns Policy and acknowledge that you have read Nzhinu Creation Privacy Policy.',
+        review_text: 'En cliquant sur le bouton "Passer commande", vous confirmez que vous avez lu, compris et accepté nos conditions d\'utilisation, nos conditions de vente et notre politique de retour, et vous reconnaissez avoir lu la politique de confidentialité de Nzhinu Creation.',
         back1: 'Retounez au pagnier',
         back: 'Retour',
-        billing: 'Adresse de livraison'
+        billing: 'Adresse de livraison',
+        in_cart: 'Dans votre Pagnier'
     }
 }
 

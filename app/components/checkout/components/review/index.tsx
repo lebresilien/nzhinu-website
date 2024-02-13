@@ -1,6 +1,11 @@
 import { Heading, Text, clx } from "@medusajs/ui"
+import { getDictionary } from "@/get-dictionary"
 
-const Review = () => {
+type Props = {
+  dict: Awaited<ReturnType<typeof getDictionary>>
+}
+
+const Review = ({ dict }: Props) => {
   
   return (
     <div className="bg-white px-4 sm:px-8">
@@ -11,17 +16,14 @@ const Review = () => {
             "flex flex-row text-3xl gap-x-2 items-baseline"
           )}
         >
-          Review
+          {dict['checkout']['review']}
         </Heading>
       </div>
         <>
           <div className="flex items-start gap-x-1 w-full mb-6">
             <div className="w-full">
               <Text className="text-med mb-1">
-                By clicking the Place Order button, you confirm that you have
-                read, understand and accept our Terms of Use, Terms of Sale and
-                Returns Policy and acknowledge that you have read Medusa
-                Store&apos;s Privacy Policy.
+                {dict['checkout']['review_text']}
               </Text>
             </div>
           </div>

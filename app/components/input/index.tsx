@@ -43,7 +43,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     return (
       <div className="flex flex-col w-full">
         {topLabel && (
-          <Label className="mb-10">{topLabel}</Label>
+          <Label className="mb-4">{topLabel}</Label>
         )}
         <div className="flex relative z-0 w-full">
           <input
@@ -77,7 +77,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className="text-ui-fg-subtle px-4 focus:outline-none transition-all duration-150 outline-none focus:text-gray-700 absolute right-0 top-3"
+              className="px-4 focus:outline-none transition-all duration-150 outline-none focus:text-gray-700 absolute right-0 top-3"
             >
               {showPassword ? <Eye /> : <EyeOff />}
             </button>
@@ -89,7 +89,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             name={name}
             render={({ message }) => {
               return (
-                <div className="pt-1 pl-2 text-rose-500 text-xsmall-regular">
+                <div className="pt-1 pl-2 text-rose-500">
                   <span>{message}</span>
                 </div>
               )
