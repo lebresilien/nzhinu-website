@@ -22,7 +22,7 @@ const Review = ({ dict }: Props) => {
         <>
           <div className="flex items-start gap-x-1 w-full mb-6">
             <div className="w-full">
-              <Text className="text-med mb-1">
+              <Text className="text-md mb-1">
                 {dict['checkout']['review_text']}
               </Text>
             </div>
