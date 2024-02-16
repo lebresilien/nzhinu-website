@@ -23,14 +23,7 @@ const Addresses = ({ dict }: Props) => {
 
         <BillingAddress dict={dict} />
       </div>
-
-      <Button
-        size="large"
-        className="bg-black mt-6 text-white p-2"
-        onClick={() => {}}
-      >
-        {dict['checkout']['delivery']}
-      </Button>   
+  
       <div className="">
         {/* <Spinner /> */}
       </div>
