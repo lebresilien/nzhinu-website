@@ -28,7 +28,7 @@ const BillingAddress = ({ dict }: Props) => {
   } = useForm<AdressCredentials>()
 
   const onSubmit = handleSubmit(async (credentials) => {
-    console.log(credentials)
+    console.log("data", credentials)
   })
 
   return (
