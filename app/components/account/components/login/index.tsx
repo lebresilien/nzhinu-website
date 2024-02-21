@@ -10,6 +10,7 @@ import ErrorMessage from "@/app/components/error-message"
 
 type Props = {
 	dic: Awaited<ReturnType<typeof getDictionary>>['login']
+  lang: 'fr' | 'en'
 }
 
 interface SignInCredentials extends FieldValues {
@@ -17,7 +18,7 @@ interface SignInCredentials extends FieldValues {
   password: string
 }
 
-const Login = ({ dic }: Props) => {
+const Login = ({ dic, lang }: Props) => {
   const { loginView, handleLogin, loading, setLoading, error, setError } = useAccount()
   const [_, setCurrentView] = loginView
   const [authError, setAuthError] = useState<string | undefined>(undefined)
@@ -30,6 +31,7 @@ const Login = ({ dic }: Props) => {
   } = useForm<SignInCredentials>()
 
   const onSubmit = handleSubmit(async (credentials) => {
+    credentials['lang'] = lang
     handleLogin(credentials)
   })
 

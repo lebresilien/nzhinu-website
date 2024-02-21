@@ -9,9 +9,10 @@ import { getDictionary } from "@/get-dictionary"
 
 type Props = {
 	dic: Awaited<ReturnType<typeof getDictionary>>['login']
+  lang: 'fr' | 'en'
 }
 
-const LoginTemplate = ({ dic }: Props) => {
+const LoginTemplate = ({ dic, lang }: Props) => {
   const { loginView, user } = useAccount()
   const [currentView, _] = loginView
 
@@ -25,7 +26,7 @@ const LoginTemplate = ({ dic }: Props) => {
  
   return (
     <div className="w-full flex justify-center px-8 py-12">
-      {currentView === "sign-in" ? <Login dic={dic} /> : <Register dic={dic} />}
+      {currentView === "sign-in" ? <Login dic={dic} lang={lang} /> : <Register dic={dic} lang={lang} />}
     </div>
   )
 }

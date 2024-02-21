@@ -58,7 +58,6 @@ export const AccountProvider = ({ children }: AccountProviderProps) => {
     api
       .post('/api/login', params)
       .then(async response => {
-        console.log('user', response.data)
         setLoading(false)
         window.localStorage.setItem('userToken', response.data.userToken)
 

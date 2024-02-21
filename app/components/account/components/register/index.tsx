@@ -10,6 +10,7 @@ import { getDictionary } from "@/get-dictionary"
 
 type Props = {
 	dic: Awaited<ReturnType<typeof getDictionary>>['login']
+  lang: 'fr' | 'en'
 }
 
 interface RegisterCredentials extends FieldValues {
@@ -20,7 +21,7 @@ interface RegisterCredentials extends FieldValues {
   phone?: string
 }
 
-const Register = ({ dic }: Props) => {
+const Register = ({ dic, lang }: Props) => {
   const { loginView } = useAccount()
   const [_, setCurrentView] = loginView
   const [authError, setAuthError] = useState<string | undefined>(undefined)

@@ -13,5 +13,5 @@ export default async function Login({
 	params: { lang: Locale }
 }>) {
   const dict = await getDictionary(lang)
-  return <LoginTemplate dic={dict['login']} />
+  return <LoginTemplate dic={dict['login']} lang={lang} />
 }
