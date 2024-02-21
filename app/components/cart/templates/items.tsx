@@ -6,7 +6,7 @@ import { getDictionary } from "@/get-dictionary"
 
 type ItemsTemplateProps = {
   products?: Cart[]
-  dict: Awaited<ReturnType<typeof getDictionary>>
+  dict: Awaited<ReturnType<typeof getDictionary>>,
 }
 
 const ItemsTemplate = ({ products, dict }: ItemsTemplateProps) => {

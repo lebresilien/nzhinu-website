@@ -7,9 +7,10 @@ import { getDictionary } from "@/get-dictionary"
 
 type Props = {
   dict: Awaited<ReturnType<typeof getDictionary>>
+  lang: 'fr' | 'en'
 }
 
-const CheckoutForm = ({ dict }: Props) => {
+const CheckoutForm = ({ dict, lang }: Props) => {
   
   const { cart } = useProductActions()
 
@@ -21,7 +22,7 @@ const CheckoutForm = ({ dict }: Props) => {
     <div>
       <div className="w-full grid grid-cols-1 gap-y-8">
         <div>
-          <Addresses dict={dict} />
+          <Addresses dict={dict} lang={lang} />
         </div>
 
        {/*  <div>

@@ -35,6 +35,7 @@ export const ProductProvider = ({
     if (itemInCart?.id) {
       itemInCart.quantity++;
     } else {
+      product.quantity++;
       setCart([...cart, product])
     }
   }
@@ -44,7 +45,6 @@ export const ProductProvider = ({
       prevItems.map(item => (item.id === id ? { ...item, quantity: value } : item))
     );
   }
-
 
   const remove = (id: string) => {
     const itemInCart = cart.filter((item) => item.id !== id);

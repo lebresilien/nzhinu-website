@@ -15,5 +15,5 @@ export default async function Checkout({
     
     const dict = await getDictionary(lang)
     
-    return <CheckoutTemplate dict={dict} />
+    return <CheckoutTemplate dict={dict} lang={lang} />
 }

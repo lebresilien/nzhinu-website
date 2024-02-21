@@ -8,13 +8,12 @@ type LineItemPriceProps = {
 const LineItemPrice = ({
   product,
 }: LineItemPriceProps) => {
-  const originalPrice = product.price * product.quantity
 
   return (
     <div className="flex flex-col gap-x-2 text-ui-fg-subtle items-end">
       <div className="text-left">
         <span>
-          {originalPrice}
+          {product.price * product.quantity}
         </span>
       </div>
     </div>

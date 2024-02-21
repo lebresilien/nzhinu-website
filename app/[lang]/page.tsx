@@ -7,14 +7,9 @@ import SkeletonHomepageProducts from '../components/skeletons/components/skeleto
 import FeaturedProducts from '../components/home/components/featured-products'
 import axios from 'axios'
 
-/* async function get() {
-  const res = await fetch('http://127.0.0.1:8000/api/products/fr')
-  return res.json()
-} */
-
 async function getCate(lang: string) {
   try {
-    const response = await axios.get(`${process.env.BACKEND_URL}/api/products/${lang}`);
+    const response = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/products/${lang}`);
     return response.data;
   } catch (error) {
     console.error('rerererereer', error);

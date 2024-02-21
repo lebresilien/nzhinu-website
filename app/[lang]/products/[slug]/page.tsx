@@ -37,7 +37,7 @@ export default async function ProductPage({
 
   const dict = await getDictionary(lang)
 
-  const response = await axios.get(`${process.env.BACKEND_URL}/api/products/${lang}/${slug}`);
+  const response = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/products/${lang}/${slug}`);
   const product = response.data
 
   return <ProductTemplate product={product} dict={dict['products']} />

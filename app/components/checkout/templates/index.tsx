@@ -8,9 +8,10 @@ import { getDictionary } from "@/get-dictionary"
 
 type Props = {
   dict: Awaited<ReturnType<typeof getDictionary>>
+  lang: 'fr' | 'en'
 }
 
-const CheckoutTemplate = ({ dict }: Props) => {
+const CheckoutTemplate = ({ dict, lang }: Props) => {
   return (
     <>
       <div className="bg-white relative sm:min-h-screen">
@@ -35,7 +36,7 @@ const CheckoutTemplate = ({ dict }: Props) => {
         <div className="relative">
           <CheckoutLoader />
           <div className="grid grid-cols-1 sm:grid-cols-[1fr_416px] container gap-x-40 py-12">
-            <CheckoutForm dict={dict}/>
+            <CheckoutForm dict={dict} lang={lang} />
             <CheckoutSummary dict={dict}/>
           </div>
         </div>

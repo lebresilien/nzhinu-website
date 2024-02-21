@@ -6,9 +6,10 @@ import { getDictionary } from "@/get-dictionary"
 
 type Props = {
   dict: Awaited<ReturnType<typeof getDictionary>>
+  lang: 'fr' | 'en'
 }
 
-const Addresses = ({ dict }: Props) => {
+const Addresses = ({ dict, lang }: Props) => {
  
   return (
     <div className="bg-white px-4 sm:px-8">
@@ -21,7 +22,7 @@ const Addresses = ({ dict }: Props) => {
           {dict['checkout']['billing']}
         </Heading>
 
-        <BillingAddress dict={dict} />
+        <BillingAddress dict={dict} lang={lang} />
       </div>
   
       <div className="">

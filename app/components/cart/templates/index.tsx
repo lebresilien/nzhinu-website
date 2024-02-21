@@ -36,7 +36,7 @@ const CartTemplate = ({ dict }: CartTemplateProps) => {
                 </>
               )} 
 
-              <ItemsTemplate products={cart} dict={dict} />
+              <ItemsTemplate products={cart} dict={dict}/>
             </div>
             <div className="relative">
               <div className="flex flex-col gap-y-8 sticky top-12">
