@@ -7,6 +7,7 @@ import api from "@/app/lib/util/axios"
 import ErrorMessage from "@/app/components/error-message"
 import { useState } from "react"
 import Spinner from "@/app/components/icons/spinner"
+import { useAccount } from "@/app/lib/context/account-context"
 
 type Props = {
   dict: Awaited<ReturnType<typeof getDictionary>>
@@ -30,10 +31,12 @@ const BillingAddress = ({ dict, lang }: Props) => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { errors },
   } = useForm<AdressCredentials>()
 
   const { cart, sum } = useProductActions()
+  const { user } = useAccount()
+  console.log('current user', user)
 
   const onSubmit = handleSubmit(async (data) => {
     let products = []
@@ -63,7 +66,7 @@ const BillingAddress = ({ dict, lang }: Props) => {
   return (
 
         <div>
-            {isSubmitting && (
+            {loading && (
               <div className="z-10 fixed inset-0 bg-white bg-opacity-50 flex items-center justify-center">
                 <Spinner />
               </div>
@@ -74,6 +77,7 @@ const BillingAddress = ({ dict, lang }: Props) => {
               autoComplete="given-name"
               {...register("name", { required: "Email is required" })}
               errors={errors}
+              value={user ? user.name : ""}
             />
             <Input
               label={dict['checkout']['lastname']}
@@ -105,19 +109,19 @@ const BillingAddress = ({ dict, lang }: Props) => {
               {...register("email", { required: "Email is required" })}
               errors={errors}
             />
-             {error && (
-              <div className="my-5 flex items-center justify-center">
-                <ErrorMessage message={error} />
-              </div>
-            )}
             <Button
-              disabled={isSubmitting}
+              disabled={loading}
               size="large"
               className="bg-black mt-6 text-white p-2"
             >
               {dict['checkout']['delivery']}
             </Button> 
           </form>
+          {error && (
+            <div className="my-5 flex">
+              <ErrorMessage message={error} />
+            </div>
+          )}
         </div>
   )
 }

@@ -60,8 +60,8 @@ export const AccountProvider = ({ children }: AccountProviderProps) => {
       .then(async response => {
         setLoading(false)
         window.localStorage.setItem('userToken', response.data.userToken)
-
-        setUser({ ...response.data.userData })
+        
+        setUser(response.data.userData)
         window.localStorage.setItem('userData', JSON.stringify(response.data.userData))
 
         const redirectURL = '/'
@@ -85,20 +85,18 @@ export const AccountProvider = ({ children }: AccountProviderProps) => {
 
   useEffect(() => {
     const initAuth = async (): Promise<void> => {
-      const storedToken = window.localStorage.getItem('token')!
+      const storedToken = window.localStorage.getItem('userToken')!
       if (storedToken) {
         setLoading(true)
         await api
-          .get('/api/me', {
-            headers: {
-              Authorization: storedToken
-            }
-          })
+          .get('/api/me')
           .then(async response => {
             setLoading(false)
-            setUser({ ...response.data.userData })
+            setUser(response.data)
+            console.log('user model', user)
+            console.log('datata', user)
           })
-          .catch(() => {
+          .catch((err) => {
             localStorage.removeItem('userData')
             localStorage.removeItem('userToken')
             setUser(null)
@@ -113,8 +111,8 @@ export const AccountProvider = ({ children }: AccountProviderProps) => {
     }
 
     initAuth()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+    // eslint-disable-next-line react-hooks/exhaustive-deps 
+  }, [user, router])
 
   return (
     <AccountContext.Provider

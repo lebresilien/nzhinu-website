@@ -48,9 +48,12 @@ export type CheckoutFormValues = {
 }
 
 export type User = {
-  firstName: string
-  lastName: string
+  name: string
+  surname: string
   email: string
+  city: string
+  address: string
+  phone: string
 }
 
 export type ErrCallbackType = (err: { [key: string]: string }) => void
