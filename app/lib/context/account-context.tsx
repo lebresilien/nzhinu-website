@@ -93,10 +93,8 @@ export const AccountProvider = ({ children }: AccountProviderProps) => {
           .then(async response => {
             setLoading(false)
             setUser(response.data)
-            console.log('user model', user)
-            console.log('datata', user)
           })
-          .catch((err) => {
+          .catch(() => {
             localStorage.removeItem('userData')
             localStorage.removeItem('userToken')
             setUser(null)

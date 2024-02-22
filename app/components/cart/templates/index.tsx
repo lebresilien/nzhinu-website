@@ -18,7 +18,7 @@ const CartTemplate = ({ dict }: CartTemplateProps) => {
 
   const { cart } = useProductActions()
   const { user } = useAccount()
-console.log('dddudud', user)
+
   if (!cart) {
     return <SkeletonCartPage />
   }

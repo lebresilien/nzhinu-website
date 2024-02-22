@@ -36,7 +36,6 @@ const BillingAddress = ({ dict, lang }: Props) => {
 
   const { cart, sum } = useProductActions()
   const { user } = useAccount()
-  console.log('current user', user)
 
   const onSubmit = handleSubmit(async (data) => {
     let products = []
@@ -84,30 +83,35 @@ const BillingAddress = ({ dict, lang }: Props) => {
               autoComplete="family-name"
               {...register("surname", { required: "Email is required" })}
               errors={errors}
+              value={user ? user.surname : ""}
             />
             <Input
               label={dict['checkout']['address']}
               autoComplete="address-line1"
               {...register("address", { required: "Email is required" })}
               errors={errors}
+              value={user ? user.address : ""}
             />
             <Input
               label={dict['checkout']['city']}
               autoComplete="address-level2"
               {...register("city", { required: "Email is required" })}
               errors={errors}
+              value={user ? user.city : ""}
             />
             <Input
               label={dict['checkout']['phone']}
               autoComplete="tel"
               {...register("phone", { required: "Email is required" })}
               errors={errors}
+              value={user ? user.phone : ""}
             />
             <Input
               label={dict['checkout']['email']}
               autoComplete="email"
               {...register("email", { required: "Email is required" })}
               errors={errors}
+              value={user ? user.email : ""}
             />
             <Button
               disabled={loading}
