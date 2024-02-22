@@ -8,6 +8,7 @@ import { MobileMenuProvider } from '../lib/context/mobile-menu-context'
 import { AccountProvider } from '../lib/context/account-context'
 import Footer from '../components/footer'
 import { ProductProvider } from '../lib/context/product-context'
+import { CartDropdownProvider } from '../lib/context/cart-dropdown-context'
 /* import {
 	QueryClient,
 	QueryClientProvider,
@@ -58,13 +59,15 @@ export default async function RootLayout({
       <body className={inter.className}>
 	  	{/* <QueryClientProvider client={queryClient}> */}
 		  	<ProductProvider>
-				<MobileMenuProvider>
-					<AccountProvider>
-						<Nav dic={nav} />
-							{children}
-						<Footer dic={nav} />
-					</AccountProvider>
-				</MobileMenuProvider>
+				<CartDropdownProvider>
+					<MobileMenuProvider>
+						<AccountProvider>
+							<Nav dic={nav} />
+								{children}
+							<Footer dic={nav} />
+						</AccountProvider>
+					</MobileMenuProvider>
+				</CartDropdownProvider>
 			</ProductProvider>
 		{/* </QueryClientProvider> */}
       </body>

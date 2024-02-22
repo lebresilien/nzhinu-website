@@ -5,6 +5,7 @@ import MobileMenu from "../mobile-menu/templates"
 import Link from "next/link"
 import { getDictionary } from "@/get-dictionary"
 import { useProductActions } from "@/app/lib/context/product-context"
+import CartDropdown from "../cart-dropdown"
 
 type Props = {
 	dic: Awaited<ReturnType<typeof getDictionary>>['home']
@@ -41,9 +42,7 @@ const Nav = ({ dic }: Props) => {
               <Link href="/login">
                 {dic['nav']['account']}
               </Link>
-              <Link href="/cart">
-                {dic['nav']['cart']} {`(${cart.length})`}
-              </Link>
+              <CartDropdown />
             </div>
           </div>
         </nav>
