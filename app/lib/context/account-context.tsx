@@ -36,14 +36,7 @@ export const AccountProvider = ({ children }: AccountProviderProps) => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const loginView = useState<LOGIN_VIEW>(LOGIN_VIEW.SIGN_IN)
-
   const router = useRouter()
-
- /*  const checkSession = useCallback(() => {
-   if (!customer && !retrievingCustomer) {
-      router.push("/account/login")
-    } 
-  }, []) */
 
   const checkSession = useCallback(() => {
     if (!user) {

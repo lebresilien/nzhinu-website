@@ -1,6 +1,5 @@
 import Input from "@/app/components/input"
 import { getDictionary } from "@/get-dictionary"
-import { FieldValues, useForm } from "react-hook-form"
 import { Button } from "@medusajs/ui"
 import { useProductActions } from "@/app/lib/context/product-context"
 import api from "@/app/lib/util/axios"
@@ -14,30 +13,34 @@ type Props = {
   lang: 'fr' | 'en'
 }
 
-interface AdressCredentials extends FieldValues {
-  name: string
-  surname: string
-  adress: string
-  city: string
-  email: string
-  phone: string
-}
-
 const BillingAddress = ({ dict, lang }: Props) => {
-
-  const [error, setError] = useState('')
-  const [loading, setLoading] = useState(false)
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<AdressCredentials>()
 
   const { cart, sum } = useProductActions()
   const { user } = useAccount()
+  
+  const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
+  const [contact, setContact] = useState({
+    name: user ? user.name : "",
+    surname: user ? user.surname : "",
+    city: user ? user.city : "",
+    email: user ? user.email : "",
+    phone: user ? user.phone : "",
+    address: user ? user.address : "",
+    lang: "",
+    price: 0,
+    products: [0]
+  })
 
-  const onSubmit = handleSubmit(async (data) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setContact({ ...contact, [name]: value });
+  };
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    
+    event.preventDefault();
+
     let products = []
     setLoading(true)
     setError('')
@@ -46,11 +49,11 @@ const BillingAddress = ({ dict, lang }: Props) => {
       products.push(parseInt(cart[i]['id']))
     }
 
-    data['lang'] = lang
-    data['products'] = products
-    data['price'] = sum() + 1000
-    
-    api.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/orders`, data)
+    contact['lang'] = lang
+    contact['products'] = products
+    contact['price'] = sum() + 1000
+
+    api.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/orders`, contact)
     .then(resp => {
       setLoading(false)
       console.log("response", resp.data)
@@ -60,7 +63,7 @@ const BillingAddress = ({ dict, lang }: Props) => {
       setError(err.response.data.message)
     })
     
-  })
+  }
 
   return (
 
@@ -70,53 +73,54 @@ const BillingAddress = ({ dict, lang }: Props) => {
                 <Spinner />
               </div>
             )}
-          <form className="grid grid-cols-2 gap-4" onSubmit={onSubmit}>
+          <form className="grid grid-cols-2 gap-4" onSubmit={handleSubmit}>
             <Input
               label={dict['checkout']['firstname']}
               autoComplete="given-name"
-              {...register("name", { required: "Email is required" })}
-              errors={errors}
-              value={user ? user.name : ""}
+              name="name"
+              value={contact.name}
+              onChange={handleChange}
             />
             <Input
               label={dict['checkout']['lastname']}
               autoComplete="family-name"
-              {...register("surname", { required: "Email is required" })}
-              errors={errors}
-              value={user ? user.surname : ""}
+              name="surname"
+              value={contact.surname}
+              onChange={handleChange}
             />
             <Input
               label={dict['checkout']['address']}
               autoComplete="address-line1"
-              {...register("address", { required: "Email is required" })}
-              errors={errors}
-              value={user ? user.address : ""}
+              name="address"
+              value={contact.address}
+              onChange={handleChange}
             />
             <Input
               label={dict['checkout']['city']}
               autoComplete="address-level2"
-              {...register("city", { required: "Email is required" })}
-              errors={errors}
-              value={user ? user.city : ""}
+              name="city"
+              value={contact.city}
+              onChange={handleChange}
             />
             <Input
               label={dict['checkout']['phone']}
               autoComplete="tel"
-              {...register("phone", { required: "Email is required" })}
-              errors={errors}
-              value={user ? user.phone : ""}
+              name="phone"
+              value={contact.phone}
+              onChange={handleChange}
             />
             <Input
               label={dict['checkout']['email']}
               autoComplete="email"
-              {...register("email", { required: "Email is required" })}
-              errors={errors}
-              value={user ? user.email : ""}
+              name="email"
+              value={contact.email}
+              onChange={handleChange}
             />
             <Button
+              type="submit"
               disabled={loading}
               size="large"
-              className="bg-black mt-6 text-white p-2"
+              className="bg-black mt-6 text-white p-2 hover:bg-gray-800"
             >
               {dict['checkout']['delivery']}
             </Button> 

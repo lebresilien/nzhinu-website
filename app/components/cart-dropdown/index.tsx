@@ -111,10 +111,10 @@ const CartDropdown = ({ dict }: Props) => {
                   </div>
                   <span>{dict['cart']['empty']}</span>
                   <div>
-                    <Link href="/store">
+                    <Link href="/">
                       <>
                         <span className="sr-only">{dict['cart']['all_products']}</span>
-                        <Button className="w-full bg-black mt-6 text-white p-2" onClick={close}>{dict['cart']['explore']}</Button>
+                        <Button className="w-full bg-black mt-6 text-white p-2 hover:bg-gray-800" onClick={close}>{dict['cart']['explore']}</Button>
                       </>
                     </Link>
                   </div>

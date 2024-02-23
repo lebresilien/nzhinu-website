@@ -3,9 +3,7 @@
 import React, {
   createContext,
   useContext,
-  useEffect,
-  useMemo,
-  useState,
+  useState
 } from "react"
 import { Cart } from "@/app/types/global" 
 
@@ -27,15 +25,14 @@ interface ProductProviderProps {
 export const ProductProvider = ({
   children,
 }: ProductProviderProps) => {
-  const item = {id: '1', title: 'title', thumbnail: '', price: 200, quantity: 2}
-  const [cart, setCart] = useState<Cart[]>([item])
+  const [cart, setCart] = useState<Cart[]>([])
   
   const addToCart = (product: Cart) => {
     const itemInCart = cart.find((item) => item.id == product.id);
     if (itemInCart?.id) {
-      itemInCart.quantity++;
+      itemInCart.quantity++;  
     } else {
-      product.quantity++;
+      product.quantity++; 
       setCart([...cart, product])
     }
   }
