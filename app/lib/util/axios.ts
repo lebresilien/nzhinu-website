@@ -7,6 +7,7 @@ const api = () => {
   })
 
   // Set the AUTH token for any request
+  //@ts-ignore
   instance.interceptors.request.use(function (config: { headers: { Authorization: string; }; }) {
     const token = window.localStorage.getItem('userToken')
     config.headers.Authorization =  token ? `Bearer ${token}` : ''

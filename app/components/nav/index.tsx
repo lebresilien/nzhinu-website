@@ -8,7 +8,7 @@ import { useProductActions } from "@/app/lib/context/product-context"
 import CartDropdown from "../cart-dropdown"
 
 type Props = {
-	dic: Awaited<ReturnType<typeof getDictionary>>['home']
+	dic: Awaited<ReturnType<typeof getDictionary>>
 }
 
 const Nav = ({ dic }: Props) => {
@@ -21,10 +21,10 @@ const Nav = ({ dic }: Props) => {
         <nav className="text-xs flex items-center justify-between w-full h-full">
           <div className="flex-1 basis-0 h-full flex items-center">
             <div className="xs:block md:hidden">
-                <SideMenu dic={dic['sidebar']}/>
+                <SideMenu dic={dic['home']['sidebar']}/>
             </div>
             <div className="hidden md:block h-full">
-              <SideMenu dic={dic['sidebar']}/>
+              <SideMenu dic={dic['home']['sidebar']}/>
             </div>
           </div>
 
@@ -33,16 +33,16 @@ const Nav = ({ dic }: Props) => {
               href="/"
               className="uppercase"
             >
-              {dic['nav']['name']}
+              {dic['home']['nav']['name']}
             </Link>
           </div>
 
           <div className="flex items-center gap-x-6 h-full flex-1 basis-0 justify-end">
             <div className="flex items-center gap-x-6 h-full">
               <Link href="/login">
-                {dic['nav']['account']}
+                {dic['home']['nav']['account']}
               </Link>
-              <CartDropdown />
+              <CartDropdown dict={dic} />
             </div>
           </div>
         </nav>

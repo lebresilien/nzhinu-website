@@ -6,7 +6,7 @@ import Link from "next/link"
 import { getDictionary } from "@/get-dictionary"
 
 type Props = {
-	dic: Awaited<ReturnType<typeof getDictionary>>['home']
+	dic: Awaited<ReturnType<typeof getDictionary>>
 }
 
 const Footer = ({ dic }: Props) => {
@@ -53,7 +53,7 @@ const Footer = ({ dic }: Props) => {
                 <li className="flex flex-col gap-2">
                   <Link
                     className={clsx(
-                        "hover:text-ui-fg-base",
+                        "hover:text-sm",
                       )}
                       href={"/"}
                     >
@@ -64,7 +64,7 @@ const Footer = ({ dic }: Props) => {
             </div>
             
             <div className="flex flex-col gap-y-2">
-              <span className="text-sm font-medium">{dic['footer']['contact']}</span>
+              <span className="text-sm font-medium">{dic['home']['footer']['contact']}</span>
               <ul className="grid grid-cols-1 gap-y-2">
                 <li>
                   <a
@@ -102,10 +102,10 @@ const Footer = ({ dic }: Props) => {
         </div>
         <div className="flex w-full mb-10 justify-between text-xs">
           <Text className="">
-            © {new Date().getFullYear()} Nzhinu Store. {dic['sidebar']['copyright']}
+            © {new Date().getFullYear()} Nzhinu Store. {dic['home']['sidebar']['copyright']}
           </Text>
           <Text className="flex gap-x-2 items-center">
-            {dic['footer']['powered']}
+            {dic['home']['footer']['powered']}
             <a href="https://www.medusajs.com" target="_blank" rel="noreferrer">
               negro services
             </a>

@@ -78,7 +78,11 @@ const fr = {
         summary: 'Resumé',
         price: 'Prix',
         explore: 'Parcourez les articles',
-        browse: 'Vous n\'avez rien dans votre pagnier. Utilisez le lien ci-dessous pour commencer à parcourir nos produits.'
+        browse: 'Vous n\'avez rien dans votre pagnier. Utilisez le lien ci-dessous pour commencer à parcourir nos produits.',
+        remove: 'Supprimer',
+        go: 'Aller au pagnier',
+        empty: 'Votre pagnier est vide.',
+        all_products: 'Visitez tous les produits'
     },
     checkout: {
         firstname: 'Nom',

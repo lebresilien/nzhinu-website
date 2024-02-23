@@ -78,7 +78,11 @@ const en = {
         summary: 'Sumary',
         price: 'Price',
         explore: 'Explore articles',
-        browse: 'You don\'t have anything in your bag. Let\'s change that, use the link below to start browsing our products.'
+        browse: 'You don\'t have anything in your bag. Let\'s change that, use the link below to start browsing our products.',
+        remove: 'Remove',
+        go: 'Go to cart',
+        empty: 'Your shopping bag is empty.',
+        all_products: 'Go to all products page'
     },
     checkout: {
         firstname: 'First name',

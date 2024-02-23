@@ -52,7 +52,6 @@ export default async function RootLayout({
 }>) {
 
 	const dictionary = await getDictionary(params.lang)
-	const nav = dictionary['home']
 
   return (
     <html lang={params.lang}>
@@ -62,9 +61,9 @@ export default async function RootLayout({
 				<CartDropdownProvider>
 					<MobileMenuProvider>
 						<AccountProvider>
-							<Nav dic={nav} />
+							<Nav dic={dictionary} />
 								{children}
-							<Footer dic={nav} />
+							<Footer dic={dictionary} />
 						</AccountProvider>
 					</MobileMenuProvider>
 				</CartDropdownProvider>
