@@ -10,6 +10,7 @@ import MobileActions from "@/app/components/products/components/mobile-actions"
 import { Product } from "@/app/types/global"
 import { getDictionary } from "@/get-dictionary"
 import { Button } from "@medusajs/ui"
+import RelatedProducts from "../components/related-products"
 
 type ProductTemplateProps = {
   product: Product,
@@ -67,9 +68,9 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, dict }) => {
             </div>
         </div>
       </div>
-     {/*  <div className="content-container my-16 px-6 small:px-8 small:my-32">
-        <RelatedProducts product={product} />
-      </div> */}
+      <div className="container my-16 px-6 sm:px-8 sm:my-32">
+        <RelatedProducts p={product} dict={dict} />
+      </div>
       <MobileActions product={product} show={!inView} />
     </>
   )

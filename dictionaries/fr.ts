@@ -64,7 +64,9 @@ const fr = {
         back: 'Retournez-nous simplement votre produit et nous vous rembourserons. Aucune question n\'est posée-nous ferons de notre mieux pour que votre retour se fasse sans problème.',
         material: 'Matériaux',
         weight: 'Poids',
-        add: 'Ajouter au panier'
+        add: 'Ajouter au panier',
+        related: 'Produits connnexes',
+        same: 'Vous pourriez aussi vouloir consulter ces produits.'
     },
     cart: {
         title: 'Pagnier',
