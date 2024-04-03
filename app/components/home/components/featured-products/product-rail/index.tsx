@@ -15,22 +15,24 @@ const ProductRail = ({ dict, category }: Props) => {
 
   return (
     <div>
-      <div className="container py-12">
-        <div className="flex justify-between mb-8">
-          <Text className="text-sm">{category.name}</Text>
-          <InteractiveLink href={`/categories/${category.slug}`}>
-             {dict['product']['see_all']}
-          </InteractiveLink>
+      {category.products.length > 0  && ((
+        <div className="container py-12">
+          <div className="flex justify-between mb-8">
+            <Text className="text-sm">{category.name}</Text>
+            <InteractiveLink href={`/categories/${category.slug}`}>
+              {dict['product']['see_all']}
+            </InteractiveLink>
+          </div>
+          <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-5">
+            {category && category.products &&
+              category.products.map((product) => (
+                <li key={product.id}>
+                  <ProductPreview {...product} />
+                </li>
+              ))}
+          </ul>
         </div>
-        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-5">
-          {category && category.products &&
-            category.products.map((product) => (
-              <li key={product.id}>
-                <ProductPreview {...product} />
-              </li>
-            ))}
-        </ul>
-      </div>
+      ))}
     </div>
   )
 }
